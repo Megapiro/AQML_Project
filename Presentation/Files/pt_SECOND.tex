@@ -4,3 +4,36 @@
 	\subsection{Empirical}
 	
 	\subsection{Benchmark}
+		\begin{frame}[allowframebreaks]{Clustering a Benchmark Data Set}
+			\textbf{The Iris Dataset}
+			\begin{itemize}
+				\item[$\bullet$] Reduced due to qubit limitations on modern hardware
+				\item[$\bullet$] Pick $N/k$ points from $2\leq k \leq3$ of the data set's classes
+			\end{itemize}
+		
+			\textbf{Experiments Run}
+			\begin{itemize}
+				\item[$\bullet$] All the 3 clustering algorithms were tested
+				\item[$\bullet$] Experiments are run on 50 subsets of the dataset
+			\end{itemize}
+		
+			\textbf{Results}
+			\begin{itemize}
+				\item[$\bullet$] $k=2$
+				\begin{itemize}
+					\item[$\circ$] Trivial case, points are linearly separable
+					\item[$\circ$] Classical algorithms perform better than quantum
+					\item[$\circ$] Evident as the number of binary variables $(Nk)$ increases
+				\end{itemize}
+				\framebreak
+				\item[$\bullet$] $k=3$
+				\begin{itemize}
+					\item[$\circ$] \textbf{QA} has similar performance to \textbf{Classical Balanced k-means}
+					\item[$\circ$] \textbf{QA} outperforms \textbf{Scikit-Learn} implementation
+					\item[$\circ$] Performance of the QA degrades as the problem size increases
+				\end{itemize}
+			\end{itemize}
+			\begin{center}
+				\includegraphics[scale=0.45]{Iris_ARI_Table.png}
+			\end{center}
+		\end{frame}
