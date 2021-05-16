@@ -19,10 +19,10 @@
 		\end{minipage}\hfill
 		\includegraphics[width=4.3cm]{Iris.png}
 	\end{frame}
-	% NOTES: We want to cluster data in balanced sets, similarity is 
-	% measured by statistical variance withing each cluster
+	% NOTES: We want to cluster data in balanced similar sets, similarity is 
+	% measured by statistical variance within each cluster
 	
-	% The advantages ove classical approaches are…
+	% The advantages over classical approaches are…
 	% This is the outline of the paper of presentation that resembles the one of the paper
 
 
@@ -34,7 +34,7 @@
 			\begin{itemize}
 				\item[$\circ$] $N$ number of data points
 				\item[$\circ$] $k$ number of clusters 
-				\item[$\circ$] $d$ dimension of the dataset
+				\item[$\circ$] $d$ number of features
 				\item[$\circ$] $i$ number of iterations before the algorithm converges
 			\end{itemize} 
 		\end{itemize}
@@ -86,23 +86,23 @@
 
 				$$X=\left\{x_{1}, x_{2}, \ldots, x_{N}\right\}$$\\$$\Phi=\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{k}\right\} .$$
 
-				$$\min _{\Phi} \sum_{i=1}^{k} \sum_{x \in \phi_{i}}\left\|x-\mu_{i}\right\|^{2}$$
+				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x \in \phi_{j}}\left\|x-\mu_{j}\right\|^{2}$$
 
-				$$\min _{\Phi} \sum_{i=1}^{k} \frac{1}{2\left|\phi_{i}\right|} \sum_{x, y \in \phi_{i}}\|x-y\|^{2}$$
+				$$\min _{\Phi} \sum_{j=1}^{k} \frac{1}{2\left|\phi_{j}\right|} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$
 
 			\end{column}
 			\begin{column}{0.5\textwidth}  
-				$$\min _{\Phi} \sum_{i=1}^{k} \sum_{x, y \in \phi_{i}}\|x-y\|^{2}$$
+				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$
 
 				Distance matrix: $D$ \\Assignment matrix: $\hat W$
 
-				$$\sum_{x, y \in \phi_{j}}\|x-y\|^{2}=\hat{w}_{j}^{T} D \hat{w}_{j}^{\prime}$$
+				$$\sum_{x, y \in \phi_{j}}\|x-y\|^{2}=\hat{w}^{\prime}_{j}^{T} D \hat{w}_{j}^{\prime}$$
 
 				$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes D\right) \hat{w}$$
 			\end{column}
 		\end{columns}
 	\end{frame}
-	% 	Quantum clustering algorithms have been proposed, however, none target the exact solution to the k-means or balanced k-means clustering model. Instead, they are heuristic approaches that approximate the k-means optimization problem. We propose a QUBO formulation that is identical to the balanced k-means training problem. 
+	% 	Quantum clustering algorithms have been proposed but the author proposes a QUBO formulation that is identical to the balanced k-means training problem, which is argued to be the time. 
 	% Our goal is to convert the balanced k-means training problem into a QUBO formulation. 
 	% 1-> A is the real valued MxM QUBO matrix while z is the binary decision vector
 	% 2-> we want to partition a dataset of N samples into k clusters
