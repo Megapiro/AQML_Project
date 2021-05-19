@@ -2,6 +2,7 @@
 
 \subsection{Balanced \textit{k}-Mean}
 	\begin{frame}{Balanced \textit{k}-Means} % FIXME: reorder 3 elements`
+		\small
 		\begin{minipage}{0.5\textwidth} % FIXME: padding
 			\textbf{Advantages over classical approaches}
 			\begin{itemize}
@@ -16,7 +17,7 @@
 				\item[$\bullet$] Empirical Analysis 
 				\item[$\bullet$] Conclusions and considerations
 			\end{itemize}
-		\end{minipage}\hfill
+		\end{minipage}
 		\includegraphics[width=4.3cm]{Iris.png}
 	\end{frame}
 	% NOTES: We want to cluster data in balanced similar sets, similarity is 
@@ -83,21 +84,22 @@
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				$$\min _{z \in \mathbb{B}^{M}} z^{T} A z$$
-
+				\pause
 				$$X=\left\{x_{1}, x_{2}, \ldots, x_{N}\right\}$$\\$$\Phi=\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{k}\right\} .$$
-
+				\pause
 				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x \in \phi_{j}}\left\|x-\mu_{j}\right\|^{2}$$
-
+				\pause
 				$$\min _{\Phi} \sum_{j=1}^{k} \frac{1}{2\left|\phi_{j}\right|} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$
+				\pause
 
 			\end{column}
 			\begin{column}{0.5\textwidth}  
 				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$
-
+				\pause
 				Distance matrix: $D$ \\Assignment matrix: $\hat W$
-
-				$$\sum_{x, y \in \phi_{j}}\|x-y\|^{2}=\hat{w}^{\prime}_{j}^{T} D \hat{w}_{j}^{\prime}$$
-
+				\pause
+				$$\sum_{x, y \in \phi_{j}}\|x-y\|^{2}=\hat{w}^{\prime \: T}_{j} D \hat{w}_{j}^{\prime}$$
+				\pause
 				$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes D\right) \hat{w}$$
 			\end{column}
 		\end{columns}
