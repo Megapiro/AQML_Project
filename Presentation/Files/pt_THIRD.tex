@@ -23,7 +23,33 @@
 	\end{frame}
 
 \section{Critical View}
-	\begin{frame}[allowframebreaks]{Our Conclusions}
+	\begin{frame}[allowframebreaks]{Critical View}
+		\textbf{How complex is to construct the QUBO ?}
+		$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$ $$\big\Downarrow$$ $$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes(D+\alpha F)+Q^{T}\left(I_{N} \otimes \beta G\right) Q\right) \hat{w}$$ 
+		
+		\textbf{Complexity}: $O(N^2kd)$ \\
+		Since $kd < N$:
+		\begin{itemize}
+			\item[$\bullet$] \textbf{Better} than classical balanced k-means: $O(N^3)$
+			\item[$\bullet$] \textbf{Worse} than Scikit Learn implementation: $O(Nkd)$  
+		\end{itemize}
+		
+		\framebreak
+		\textbf{Variables and Density of the QUBO}
+		\begin{itemize}
+			\item[$\bullet$] In the QUBO formulation we introduce $k$ binary variables for each variable in the original problem \\ $$O(Nk) \:\: \textbf{variables}$$ % complexity of equation above [16]
+			\item[$\bullet$] Efficient embedding algorithms \textcolor{gray}{[30]} allow for a density of \\ $$O(N^2 k^2) \:\: \textbf{qubits}$$ 
+		\end{itemize}
+		\vspace{-0.5cm}
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.7]{table1.png}
+		\end{figure}
+		\vspace{-0.3cm}
+		\tiny{\textcolor{gray}{[30] P. Date, R. Patton, C. Schuman, and T. Potok, “Efficiently embedding qubo problems on adiabatic quantum computers,” Quantum Information Processing, vol. 18, no. 4, p. 117, 2019.}}
+		
+		\framebreak
+		\normalsize
 		\textbf{Can we cluster larger datasets on Advantage?}
 		\begin{center}
 			\begin{minipage}{0.5\textwidth}
