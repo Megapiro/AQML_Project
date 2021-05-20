@@ -119,21 +119,23 @@
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
 				$$\alpha\left(\hat{w}_{j}^{\prime T} \hat{w}_{j}^{\prime}-N / k\right)^{2}$$
-
+				\pause
 				$$\hat{w}_{j}^{\prime T} \alpha F \hat{w}_{j}^{\prime}$$
-
+				\pause
 				$$F=1_{N}-\frac{2 N}{k} I_{N}$$
-
+				\pause
 				$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes(D+\alpha F)\right) \hat{w}$$
+				\pause
 			\end{column}
 			\begin{column}{0.5\textwidth}  
 				$$\beta\left(\hat{w}_{i}^{T} \hat{w}_{i}-1\right)^{2}$$
-
+				\pause
 				$$\hat{w}_{i}^{T} \beta G \hat{w}_{i}$$
-
+				\pause
 				$$G=1_{k}-2 I_{k}$$
-
+				\pause
 				$$\hat{w}^{T} Q^{T}\left(I_{N} \otimes \beta G\right) Q \hat{w}$$
+				\pause
 			\end{column}
 		\end{columns}
 		\bigbreak
