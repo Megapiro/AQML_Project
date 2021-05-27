@@ -111,7 +111,7 @@
 			\end{itemize}
 
 			\begin{center}
-				\includegraphics[scale=0.4]{Iris_ARI_table.png}
+				\includegraphics[scale=0.65]{first_ARI_table.png}
 			\end{center}
 		\end{frame}
 
@@ -231,6 +231,11 @@
 				\item[$\circ$] Classical algorithms perform better than quantum
 				\item[$\circ$] Evident as the number of binary variables $(Nk)$ increases
 			\end{itemize}
+			% Iris dataset used as proof of consistency of the previous results on a typical benchmarck dataset
+			% Even if the dataset is composed of just 150 points with 4 features and k classes the quantum algorithm is still not powerful enough
+			% Hence they reduced the number of points to N/k and considered k between 2 and 3
+			% Results for k = 2 are significantly better for the classical algorithms since points are linearly separable and the global optimum is always found
+		
 			\framebreak
 			\item[$\bullet$] $k=3$
 			\begin{itemize}
@@ -242,4 +247,6 @@
 		\begin{center}
 			\includegraphics[scale=0.45]{Iris_ARI_table.png}
 		\end{center}
+		% For k = 3 the quantum algorithm performs as well as the classical balanced k-means and outperforms Scikit-learn implementation
+		% The ARI table for this last experiments shows the results obtained and makes evidence that when the size of the problem increases, the performances of the QA degrade
 	\end{frame}
