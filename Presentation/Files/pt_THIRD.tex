@@ -9,6 +9,10 @@
 			\item[$\bullet$] The approach assumes viability as the quantum hardware improves
 		\end{itemize}
 	\end{frame}
+	% First conclusion is related to the possibility of quantum annealers to solve efficiently optimization problems belonging to the NP-Hard and NP-Complete classes
+	% Hence, being machine learning mainly focused on solving optimization problems we have very promising results for the field of Quantum Machine Learning
+	% Results obtained results that are similar to the ones that we obtained with the classical algorithms. Experiments were run testing different scalability parameters and in all we were able to understand that quantum hardware is always the main limitation. What it is expected with the development of the technology is that the quantum solver will be able to outperfrom the classical ones and also solve more complex instances of problems
+	% Recall that everything was tested on the 2000q machine and nowadays we have a machine that is more powerull -> Advantage (start to introduce the importance of our last critic)
 
 	\begin{frame}{Future Works}
 		\begin{itemize}
@@ -21,6 +25,10 @@
 			\item[$\bullet$] Cluster larger datasets 
 		\end{itemize}
 	\end{frame}
+	% Future works are mainly based on working on the QUBO formulation
+	% In fact an interesting development could be the one of generalizing the formulatio to the generic k-means training problem. We tried to understand what this work would require. Trivial is to remove the constraints that we added for the balanced problem but in this way the formulation gets different and the step that follow in the procedure of obtaining the final formulation may be more complex than the ones that Matteo presented.
+	% Using the QUBO formulation the authors say that they could also think of formalizing similar clustering models to solve other instances of such problem like: k-medoids and fuzzy C-means
+	% The main and more interesting work that we all can't wait to discover is whether the promises made by the authors are valid when we consider larger datasets
 
 \section{Critical View}
 	\begin{frame}[allowframebreaks]{Critical View}
@@ -33,7 +41,27 @@
 			\item[$\bullet$] \textbf{Better} than classical balanced k-means: $O(N^3)$
 			\item[$\bullet$] \textbf{Worse} than Scikit Learn implementation: $O(Nkd)$  
 		\end{itemize}
+		% Our critical view on this paper is mainly focused on the study of the QUBO formulation since we think that this step, in each of the quantum annealing papers describing how to solve a problem in this way, is the most important. This because if we are able to bring the classical optimization problem to the QUBO formulation, more than limitations regarding the hardware of the quantum machine, we are already able to write an algorithm that can be executed on the annealer.
+		% For this reason the first conclusion that we want to address is understanding how complex is to construct the QUBO. To answer this question it means to understand the complexity needed to pass from the equation on the top (the formal classical balanced k-means opt problem) to the one on the bottom (the final QUBO formulation). As we were able to understand from Matteo's description of the QUBO formulation the terms in this equation determine a complexity of O(N^2kd). Since kd < N it means that in general the quantum algorithm performs better than classical balanced k-means O(N^3) and worse than Scikit Learn O(Nkd).
 		
+		\framebreak
+		\small{
+		Hyperparameter $\alpha$ allows to make considerations in the data preparation phase of the clustering algorithm:
+		\begin{itemize}
+			\item[$\bullet$] \textbf{Completely unbalanced} $\implies$ use Scikit-Learn implementation
+			\item[$\bullet$] \textbf{Fairly Balanced} $\implies$ tuning on $\alpha$ and use Quantum Balanced implementation
+			\item[$\bullet$] \textbf{Balanced} $\implies$ use Quantum Balanced implementation with $\alpha < \beta$
+		\end{itemize}
+		\textbf{Tuning $\alpha$}
+		\begin{itemize}
+			\item[$\bullet$] Modifies the curvature of the quadratic function to optimize
+			\item[$\bullet$] By making $\alpha$ looser we change the position of the optimum allowing to cluster datasets that are not completely balanced
+			\item[$\bullet$] Tuning $\alpha$ allows to prepare the algorithm on how much balanced the dataset will be 
+		\end{itemize}
+		}
+		% The parameter alpha determines the possibility of allowing to violate the constraint of having unbalanced classes. However we understand that if we know that the problem that we are facing is not balanced the Scikit-Learn implementation will perform better, since O(NKd) is better than O(N^2kd). If the problem is balanced the quantum approach has good chances to perform better but we can also use this implementation on datasets that are not completely unbalanced. For example if we have classes that have a difference in the number of points belonging to them. To account for this problem we can tune alpha 
+		% Tuning alpha modifies the curcature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allows the possibility to violate a few the constraint
+	
 		\framebreak
 		\textbf{Variables and Density of the QUBO}
 		\begin{itemize}
@@ -47,7 +75,10 @@
 		\end{figure}
 		\vspace{-0.3cm}
 		\tiny{\textcolor{gray}{[30] P. Date, R. Patton, C. Schuman, and T. Potok, “Efficiently embedding qubo problems on adiabatic quantum computers,” Quantum Information Processing, vol. 18, no. 4, p. 117, 2019.}}
-		
+		% The second consideration related to the qubo formulation is its density and consequently yhe number of qubits that the problem needs to be embedded on the quanum annealer. As we clearly understood from Matteo's discussion since k binary variables are needed for each of the N points we will have Nk variables in the final problem.
+		% Now the problem needs to be embedded on the quantum annealer and, even  by using the most efficient annealing algorithms this process requires a quadratic time and a quadratic footprint of qubits. This means that the complexity of the number of qubits that are required to embed the problem is O(N^2k^2)
+		% It is interesting to compare this complexity to the table reported by the authors for their experiments. We clearly see that in this case the relationis not quadratic but we have to remember that these cases are still very simple and the algorithm upperbound works for the general case	
+				
 		\framebreak
 		\normalsize
 		\textbf{Can we cluster larger datasets on Advantage?}
@@ -71,5 +102,5 @@
 				\includegraphics[scale=0.2]{Advantage.png}
 			\end{minipage}
 		\end{center}
-		
+		% Our last conclusion is related to the main topic that we discussed in this paper: technology limitations do not allow to obtain results for complex instances of problems. For this reason we noticed that when the authors were developing this paper the 2000q machine was the only one available. Nowadays we have Advantage, and as we can see in the comparison a big improvement was achieved with this new hardware: more than the double of the qubits and 40k couplers. This conclusion wants to highlight the fact that if the promises of the authors were correct it would be very interesting to check if by using advantage we can already see some better results!
 	\end{frame}
