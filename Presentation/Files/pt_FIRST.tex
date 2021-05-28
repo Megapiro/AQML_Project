@@ -15,7 +15,8 @@
 			\begin{itemize}
 				\item[$\bullet$] QUBO formulation and theoretical analysis
 				\item[$\bullet$] Empirical Analysis 
-				\item[$\bullet$] Conclusions and considerations
+				\item[$\bullet$] Authors' Conclusions
+				\item[$\bullet$] Our Conclusions, opinions and considerations
 			\end{itemize}
 		\end{minipage}
 		\includegraphics[width=4.3cm]{Iris.png}
@@ -23,8 +24,11 @@
 	% NOTES: We want to cluster data in balanced similar sets, similarity is 
 	% measured by statistical variance within each cluster
 	
+	% why should we look for a Q-algorithm for this problem?
+
 	% The advantages over classical approaches are…
-	% This is the outline of the paper of presentation that resembles the one of the paper
+
+	% This is the outline of our presentation that resembles the one of the paper
 
 
 \subsection{Unconstrained \textit{k}-Mean Clustering}
@@ -55,7 +59,6 @@
 			}
 		}
 	\end{frame}
-	
 
 	% Lloyd’s algorithm is an iterative approach for solving unconstrained 
 	% k-means clustering (meaning that the result is not necessarily balanced). 
@@ -72,45 +75,57 @@
 		\end{itemize}
 		\includegraphics[width=6cm]{[21]algorithm.png}
 		\break
-		\tiny{ % FIXME: attach to bottom
+		\tiny{ % FIXME: attach to bottom and add margin
 			\textcolor{gray}{
 				[21] Malinen, Mikko. (2014). Balanced K-Means for Clustering. 
 			}
 		}
 	\end{frame}
 
+	% this is the other algorithm is used for camperison w.r.t. the 
+	% quantum one proposed, this one takes into consideration the
+	% balanced constrained, it has complexity O(N^3)
+
 \subsection{QUBO formulation}
 	\begin{frame}{QUBO formulation}
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
+				% 1 
 				$$\min _{z \in \mathbb{B}^{M}} z^{T} A z$$
 				\pause
+				% 2
 				$$X=\left\{x_{1}, x_{2}, \ldots, x_{N}\right\}$$\\$$\Phi=\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{k}\right\} .$$
 				\pause
+				% 3 
 				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x \in \phi_{j}}\left\|x-\mu_{j}\right\|^{2}$$
 				\pause
+				% 4
 				$$\min _{\Phi} \sum_{j=1}^{k} \frac{1}{2\left|\phi_{j}\right|} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$
 				\pause
 
 			\end{column}
 			\begin{column}{0.5\textwidth}  
+				% 5
 				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$
 				\pause
+				% 6
 				Distance matrix: $D$ \\Assignment matrix: $\hat W$
 				\pause
+				% 7
 				$$\sum_{x, y \in \phi_{j}}\|x-y\|^{2}=\hat{w}^{\prime \: T}_{j} D \hat{w}_{j}^{\prime}$$
 				\pause
+				% 8
 				$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes D\right) \hat{w}$$
 			\end{column}
 		\end{columns}
 	\end{frame}
-	% 	Quantum clustering algorithms have been proposed but the author proposes a QUBO formulation that is identical to the balanced k-means training problem, which is argued to be the time. 
+	% 	Quantum clustering algorithms have been proposed but the author proposes a QUBO formulation that is identical to the balanced k-means training problem.
 	% Our goal is to convert the balanced k-means training problem into a QUBO formulation. 
 	% 1-> A is the real valued MxM QUBO matrix while z is the binary decision vector
 	% 2-> we want to partition a dataset of N samples into k clusters
 	% 3-> mu is the centroid of a cluster
 	% 4-> utilizing the law of total variance
-	% 5-> in case we assume the clusters to be
+	% 5-> in case we assume the clusters to be balanced we can drop the constant 1/2|\phi|
 	% 6-> NxN matrix with distances, Nxk matrix with binary values with ones if a sample is assigned to that column's cluster
 	% 7-> w_j is the j-th column of W the first multiplication makes us obtain a n-row vector in which each value is the sum of the distances of 1 of n samples from the samples in the cluster, the second one only select the sum of distances of samples in the same cluster.
 	% 8-> \hat w is the vertical stack of column of W, now we need to add the constraint over \hat W through penalties 
@@ -118,22 +133,30 @@
 	\begin{frame}{Penalties}
 		\begin{columns}
 			\begin{column}{0.5\textwidth}
+				% 1 
 				$$\alpha\left(\hat{w}_{j}^{\prime T} \hat{w}_{j}^{\prime}-N / k\right)^{2}$$
 				\pause
+				% 2
 				$$\hat{w}_{j}^{\prime T} \alpha F \hat{w}_{j}^{\prime}$$
 				\pause
+				% 3
 				$$F=1_{N}-\frac{2 N}{k} I_{N}$$
 				\pause
+				% 4
 				$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes(D+\alpha F)\right) \hat{w}$$
 				\pause
 			\end{column}
 			\begin{column}{0.5\textwidth}  
+				% 5
 				$$\beta\left(\hat{w}_{i}^{T} \hat{w}_{i}-1\right)^{2}$$
 				\pause
+				% 6
 				$$\hat{w}_{i}^{T} \beta G \hat{w}_{i}$$
 				\pause
+				% 7
 				$$G=1_{k}-2 I_{k}$$
 				\pause
+				% 8
 				$$\hat{w}^{T} Q^{T}\left(I_{N} \otimes \beta G\right) Q \hat{w}$$
 				\pause
 			\end{column}
@@ -155,10 +178,10 @@
 	%% now we subtract this -2N/k from the number in the column and we only select the points in the column
 	
 	%% COL 2 %%
-	% 1) Then we need to add the constraint so that each points belongs to one and only one cluster.
+	% 5) Then we need to add the constraint so that each points belongs to one and only one cluster.
 	% w_i is a row of  W so the first equation is pretty straight forward, clearly minimal when w_i only contains a single 1
-	% 3-4) By using the same trick as before we obtain we obtain the following function
-	% 5) This time however we have the constraint for each row in stead of for each column so we need to use the matrix Q which linearly transform the vertical stack of column \hat w in a vertical stack of rows
+	% 6-7) By using the same trick as before we obtain we obtain the following function
+	% 8) This time however we have the constraint for each row in stead of for each column so we need to use the matrix Q which linearly transform the vertical stack of column \hat w in a vertical stack of rows
 
 	\begin{frame}{Hyper-parameters tuning}
 		$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes(D+\alpha F)+Q^{T}\left(I_{N} \otimes \beta G\right) Q\right) \hat{w}$$
@@ -220,5 +243,7 @@
 
 	% by rewriting the equation we can see that the worst case complexity for converting the eq. into a QUBO problem is 
 	% as a reminder these are the complexity of the algorithms use for comparison
+
+	%% Francesco Actually says this conclusion...
 	% Our conclusion based on this complexity and the Empirical analysis we will se later is that before using the quantum algorithm proposed on a large dataset one should assess how important the balanced constraint really is, since the Scikit learn approach remains asymptotically better.
 
