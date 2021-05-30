@@ -12,7 +12,10 @@
 	% First conclusion is related to the possibility of quantum annealers to solve efficiently optimization problems belonging to the NP-Hard and NP-Complete classes
 	% Hence, being machine learning mainly focused on solving optimization problems we have very promising results for the field of Quantum Machine Learning
 	% Results obtained results that are similar to the ones that we obtained with the classical algorithms. Experiments were run testing different scalability parameters and in all we were able to understand that quantum hardware is always the main limitation. What it is expected with the development of the technology is that the quantum solver will be able to outperfrom the classical ones and also solve more complex instances of problems
+
 	% Recall that everything was tested on the 2000q machine and nowadays we have a machine that is more powerull -> Advantage (start to introduce the importance of our last critic)
+
+	% matte-esse: I don't understand this Recall... our last critic?
 
 	\begin{frame}{Future Works}
 		\begin{itemize}
@@ -26,7 +29,10 @@
 		\end{itemize}
 	\end{frame}
 	% Future works are mainly based on working on the QUBO formulation
-	% In fact an interesting development could be the one of generalizing the formulatio to the generic k-means training problem. We tried to understand what this work would require. Trivial is to remove the constraints that we added for the balanced problem but in this way the formulation gets different and the step that follow in the procedure of obtaining the final formulation may be more complex than the ones that Matteo presented.
+	% In fact an interesting development could be the one of generalizing the formulation to the generic k-means training problem. We tried to understand what this work would require. Trivial is to remove the constraints that we added for the balanced problem but in this way the formulation gets different and the step that follow in the procedure of obtaining the final formulation may be more complex than the ones that Matteo presented.
+
+	% matte-esse: we should talk about this comment on Friday
+
 	% Using the QUBO formulation the authors say that they could also think of formalizing similar clustering models to solve other instances of such problem like: k-medoids and fuzzy C-means
 	% The main and more interesting work that we all can't wait to discover is whether the promises made by the authors are valid when we consider larger datasets
 
@@ -60,7 +66,7 @@
 		\end{itemize}
 		}
 		% The parameter alpha determines the possibility of allowing to violate the constraint of having unbalanced classes. However we understand that if we know that the problem that we are facing is not balanced the Scikit-Learn implementation will perform better, since O(NKd) is better than O(N^2kd). If the problem is balanced the quantum approach has good chances to perform better but we can also use this implementation on datasets that are not completely unbalanced. For example if we have classes that have a difference in the number of points belonging to them. To account for this problem we can tune alpha 
-		% Tuning alpha modifies the curcature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allows the possibility to violate a few the constraint
+		% Tuning alpha modifies the curvature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allows the possibility to violate a few the constraint
 	
 		\framebreak
 		\textbf{Variables and Density of the QUBO}
@@ -75,10 +81,13 @@
 		\end{figure}
 		\vspace{-0.3cm}
 		\tiny{\textcolor{gray}{[30] P. Date, R. Patton, C. Schuman, and T. Potok, “Efficiently embedding qubo problems on adiabatic quantum computers,” Quantum Information Processing, vol. 18, no. 4, p. 117, 2019.}}
-		% The second consideration related to the qubo formulation is its density and consequently yhe number of qubits that the problem needs to be embedded on the quanum annealer. As we clearly understood from Matteo's discussion since k binary variables are needed for each of the N points we will have Nk variables in the final problem.
+		% The second consideration related to the qubo formulation is its density and consequently the number of qubits that the problem needs to be embedded on the quatnum annealer. As we clearly understood from Matteo's discussion since k binary variables are needed for each of the N points we will have Nk variables in the final problem.
 		% Now the problem needs to be embedded on the quantum annealer and, even  by using the most efficient annealing algorithms this process requires a quadratic time and a quadratic footprint of qubits. This means that the complexity of the number of qubits that are required to embed the problem is O(N^2k^2)
+
 		% It is interesting to compare this complexity to the table reported by the authors for their experiments. We clearly see that in this case the relationis not quadratic but we have to remember that these cases are still very simple and the algorithm upperbound works for the general case	
-				
+		
+		% matte-esse: we should talk about this comment on Friday
+		
 		\framebreak
 		\normalsize
 		\textbf{Can we cluster larger datasets on Advantage?}
