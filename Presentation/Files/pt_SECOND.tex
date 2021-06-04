@@ -6,13 +6,16 @@
 		\begin{frame}{Baselines}
 		\textbf{Algorithms used for comparisons}
 		\begin{itemize}
-			\item[$\bullet$] balanced quantum k-means (case study)
-			\item[$\bullet$] balanced classical k-means (authors implementation)
-			\item[$\bullet$] classical k-means scikit-learn implementation
+			\item[$\bullet$] \textbf{balanced quantum k-means} (case study)
+			\item[$\bullet$] \textbf{balanced classical k-means} (authors implementation)
+			\item[$\bullet$] \textbf{classical k-means} (scikit-learn implementation)
 		\end{itemize}
 
-		classical version of the k-means (non balanced) is used since, due to the structure 
-		of the dataset, constitute a valid comparison.
+		classical k-means is a \textbf{valid comparison}
+
+		% the above algorithms are the three baselines used
+		% classical version of the k-means (non balanced) is used since, due to the structure 
+		% of the dataset, constitute a valid comparison.
 		
 		\end{frame}
 
@@ -21,21 +24,27 @@
 			\textbf{Adjusted Rand Index (ARI)}
 			\begin{itemize}
 				\item[$\bullet$] compare the similarity of two partitions of a dataset
-				\item[$\bullet$] range from $-1$ to $1$ (high values indicates the two partitions are similar) 
-				\item[$\bullet$] used to compare the target partitions to the partitions produced by clustering 
+				\item[$\bullet$] range from $-1$ to $1$ 
+				\item[$\bullet$] used to compare \textbf{target partitions} vs \textbf{clustering partitions} 
 			\end{itemize}
 			
 			\textbf{Total Computing time in quantum approach}
 			\begin{equation}
 				t = t_{QUBO_convertion} + t_{e} + t_{a} + t_{postprocessing}
 			\end{equation}
-			\begin{itemize}
-				\item[$\bullet$] $t_{QUBO convertion}$ time to convert the problem in QUBO
-				\item[$\bullet$] $t_{e}$ time to embed the QUBO on hardware 	
-				\item[$\bullet$] $t_{a}$ time to solve the QUBO (anealing time)
-				\item[$\bullet$] $t_{postprocessing}$ extract clustering from binary solution
-			\end{itemize} 
 
+			% here we have 2 metrics for the comparison, the ARI is and indicator
+			% of similarity between 2 partitions, it ranges between -1 and 1 
+			% high values indicates high similarity, 0 means random assignment
+			% and in the paper is used to compare the target partition (correct solution)
+			% with the one obtained by the cluster
+			% the second metric is the tot computing time, this metric in quantum approach
+			% is fragmented in different time measures:
+			% $t_{QUBO convertion}$ time to convert the problem in QUBO
+			% $t_{e}$ time to embed the QUBO on hardware 	
+			% $t_{a}$ time to solve the QUBO (anealing time)
+			% $t_{postprocessing}$ extract clustering from binary solution
+		
 		\end{frame}
 
 		\begin{frame}{Data Generation}
@@ -47,14 +56,18 @@
 				\item[$\bullet$] \textbf{k} classes	
 				\item[$\bullet$] \textbf{1} cluster per class	
 				\item[$\bullet$] \textbf{d} features 
-				\item[$\bullet$] clusters centered on a \textit{d}-dimensional hypercube (with side length $2.0$)  
-				\item[$\bullet$] points generated from a normal dist. about their cluster center (std $1.0$)   
-				\item[$\bullet$] each class made of $\frac{N}{k}$ points   
+				\item[$\bullet$] clusters \textbf{centered} on a \textit{d}-dimensional hypercube (with side length $2.0$)  
+				\item[$\bullet$] points generated from a \textbf{normal dist.} about their cluster center (std $1.0$)   
+				\item[$\bullet$] each class made of $\frac{N}{k}$ \textbf{points}   
 			\end{itemize}
+
+			% data for experiments is generated from a scikit learn function called make_classification
+			% for each experiments, as we will see later 50 datasets are created with the following characteristics
+			% * description of the list *
 			
 		\end{frame}
 
-		\begin{frame}{Hardware Configuration}	
+		\begin{frame}{Experiments' Hardware Configuration}	
 			\textbf{Classical Machine}
 			\begin{itemize}
 				\item[$\bullet$] 2.7 GHz Dual-Core Intel i5 
@@ -69,11 +82,15 @@
 
 			\textbf{Technical Aspects}
 			\begin{itemize}
-				\item[$\bullet$] quantum approach pre/post-processing done via the above classical machine
-				\item[$\bullet$] quantum anealing operation perfomed 100 times for each experiment   
+				\item[$\bullet$] \textbf{quantum pre/post-processing} done via the above \textbf{classical} machine
+				\item[$\bullet$] quantum \textbf{anealing} operation \textbf{perfomed 100 times} for each experiment   
 				\item[$\bullet$] only ground state is used % TODO: find out the meaning  
 			\end{itemize}			
-					
+
+			% the Hardware used for the experiments is reported in this slide
+			% * description of the list *
+			% what it means with only ground state is used???
+
 		\end{frame}
 
 		\begin{frame}{Experiments}
@@ -89,10 +106,12 @@
 				\begin{itemize}
 					\item[$\circ$]  all the 3 algorithm evaluated on 50 \textbf{synthetic datasets}
 				\end{itemize}
-
-				% TODO: the paper doesn't mention about how they aggregate results 
-				% TODO: of the 50 experiments, I assume they averaged them
 			\end{itemize}
+
+			% the experiments are carried for different problem types, problem type are
+			% defined by the number of points and number of clusters for instance (12, 3)
+			% the main experiment is done with 9 problem types, for each of them 
+			% the algorithms are evaluated on the 50 generated datasets
 			
 		\end{frame}
 
@@ -101,7 +120,7 @@
 			\begin{itemize}
 				\item[$\bullet$] performances drop for $k=2$
 				\begin{itemize}
-					\item[$\circ$] less way to cluster means a local solution is more likely to be the correct one
+					\item[$\circ$] less way to cluster $\Longrightarrow$ local solution is more likely to be the correct one 
 				\end{itemize}
 				\item[$\bullet$] performances drop as the problem size increase 
 				\begin{itemize}
@@ -113,13 +132,15 @@
 			\begin{center}
 				\includegraphics[scale=0.65]{first_ARI_table.png}
 			\end{center}
+
+			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Limitations and Approximations}
 			\textbf{Limitations faced}
 			\begin{itemize}
 				\item[$\bullet$] \textbf{Variable limitation} D-Wave 2000Q qubit limitation for problems $Nk > 64$ var.
-				\item[$\bullet$] \textbf{Qubit connectivity} limitation $=>$ higher embedding time
+				\item[$\bullet$] \textbf{Qubit connectivity} "limitation" $=>$ higher embedding time
 			\end{itemize}
 			\textbf{Approximations}
 			\begin{itemize}
@@ -132,7 +153,7 @@
 					\item[$\circ$] measure $t_{postprocessing}$
 				\end{itemize} 
 			\end{itemize}
-			According to the embedding algorithms chosen by authors which scales quadratically in the number of binary variables of the QUBO
+			embedding algorithms chosen \textbf{scales quadratically} in the number of \textbf{binary variables} of the QUBO
 			\begin{equation}
 				t_{e} = 1.887 \times 10^{-6}(Nk)^2 
 				+ 4.632 \times 10^{-6}(Nk)
@@ -141,6 +162,14 @@
 			\begin{equation}
 				t_{a} = 0.03481 \pm 0.00008
 			\end{equation}
+
+			% here the main limitations are about variables, since D-Wave 2000Q can't handle problems with more than 64 variables
+			% and the qubit connectivity, of course the more the connections the more time is required by the embedding algorithm
+			% approximation introduced is the evaluations for problems with more than 64 variables, since we cannot test them in
+			% practice, to estimate the new computing time we have to approximate the anealing time and the embedding time, other 
+			% values are measurable, since they happen in classical. since the embedding algorithm choosed by authors scale quadratically
+			% in num of var can be approx with this formula. for what concern the anealing time, since it is costant one measured
+			% in previous examples is used
 		\end{frame}
 
 		\begin{frame}{Scalability}
@@ -154,6 +183,8 @@
 				\end{itemize}
 				\item[$\bullet$] $\forall$ \textbf{problem type} baselines runned on 50 \textbf{synthetic datasets}
 			\end{itemize}
+
+			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. points (N)}
@@ -170,7 +201,9 @@
 			\end{itemize}
 			\begin{center}
 				\includegraphics[scale=0.35]{scalability_points.png}
-			\end{center}		
+			\end{center}	
+			
+			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. clusters (k)}
@@ -187,6 +220,7 @@
 			\begin{center}
 				\includegraphics[scale=0.35]{scalability_clusters.png}
 			\end{center}
+			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. features (d)}
@@ -207,6 +241,7 @@
 			\begin{center}
 				\includegraphics[scale=0.35]{scalability_features.png}
 			\end{center}
+			% * same things in the slides *
 		\end{frame}
 	
 	\subsection{Benchmark}
