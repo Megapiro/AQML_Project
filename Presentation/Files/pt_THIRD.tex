@@ -32,6 +32,7 @@
 	% In fact an interesting development could be the one of generalizing the formulation to the generic k-means training problem. We tried to understand what this work would require. Trivial is to remove the constraints that we added for the balanced problem but in this way the formulation gets different and the step that follow in the procedure of obtaining the final formulation may be more complex than the ones that Matteo presented.
 
 	% matte-esse: we should talk about this comment on Friday
+	% TODO: What we talked about on Friday: show how this impacts on |phi_j|
 
 	% Using the QUBO formulation the authors say that they could also think of formalizing similar clustering models to solve other instances of such problem like: k-medoids and fuzzy C-means
 	% The main and more interesting work that we all can't wait to discover is whether the promises made by the authors are valid when we consider larger datasets
@@ -49,6 +50,8 @@
 		\end{itemize}
 		% Our critical view on this paper is mainly focused on the study of the QUBO formulation since we think that this step, in each of the quantum annealing papers describing how to solve a problem in this way, is the most important. This because if we are able to bring the classical optimization problem to the QUBO formulation, more than limitations regarding the hardware of the quantum machine, we are already able to write an algorithm that can be executed on the annealer.
 		% For this reason the first conclusion that we want to address is understanding how complex is to construct the QUBO. To answer this question it means to understand the complexity needed to pass from the equation on the top (the formal classical balanced k-means opt problem) to the one on the bottom (the final QUBO formulation). As we were able to understand from Matteo's description of the QUBO formulation the terms in this equation determine a complexity of O(N^2kd). Since kd < N it means that in general the quantum algorithm performs better than classical balanced k-means O(N^3) and worse than Scikit Learn O(Nkd).
+		
+		% TODO: dire che il fairly balanced è piu verso il balanced -> perche togliendo 1/2phi_j se ci discostiamo troppo andiamo a perdere la assunzione che abbiamo fatto e non ha piu senso --> rendendo alpha looser di poco pensiamo che non crei problemi: quindi funziona per dataset che non sono balanced ma neanche troppo poco balanced
 		
 		\framebreak
 		\small{
@@ -87,6 +90,7 @@
 		% It is interesting to compare this complexity to the table reported by the authors for their experiments. We clearly see that in this case the relation is not quadratic but we have to remember that these cases are still very simple and the algorithm upperbound works for the general case	
 		
 		% matte-esse: we should talk about this comment on Friday
+		% TODO: here explain that these are the simplest instances. This means that the quadratic term is not predominant on the linear one. As the complexity of the problem increases the more the quadratic term will be predominant. For instance: 0.0000001x^2 + 0.01x + 0.0001c --> vedere bene l'aspetto dei punti plottandoli
 		
 		\framebreak
 		\normalsize
