@@ -18,8 +18,15 @@
 	% matte-esse: I don't understand this Recall... our last critic? --> lol si questo non è recall ma REMIND
 
 	\begin{frame}{Future Works}
+		\small{
 		\begin{itemize}
+			\setlength\itemsep{-0.5em}
 			\item[$\bullet$] Bring the QUBO formulation to the generic k-means training problem
+				\begin{itemize}
+					\setlength\itemsep{-0.5em}
+					\item[$\circ$] \textbf{Balanced Problem} \small{$$\min _{\Phi} \sum_{j=1}^{k} \frac{1}{2\left|\phi_{j}\right|} \sum_{x, y \in \phi_{j}}\|x-y\|^{2} \implies \min _{\Phi} \sum_{j=1}^{k} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$}
+					\item[$\circ$] \textbf{Generic Problem} \small{$$\min _{\Phi} \sum_{j=1}^{k} \frac{1}{2\left|\phi_{j}\right|} \sum_{x, y \in \phi_{j}}\|x-y\|^{2}$$}
+				\end{itemize}
 			\item[$\bullet$] Use elements of the approach to formulate quantum algorithms for similar clustering models
 			\begin{itemize}
 				\item[$\circ$] k-medoids clustering
@@ -27,12 +34,10 @@
 			\end{itemize}
 			\item[$\bullet$] Cluster larger datasets 
 		\end{itemize}
+		}
 	\end{frame}
 	% Future works are mainly based on working on the QUBO formulation
-	% In fact an interesting development could be the one of generalizing the formulation to the generic k-means training problem. We tried to understand what this work would require. Trivial is to remove the constraints that we added for the balanced problem but in this way the formulation gets different and the step that follow in the procedure of obtaining the final formulation may be more complex than the ones that Matteo presented.
-
-	% matte-esse: we should talk about this comment on Friday
-	% TODO: What we talked about on Friday: show how this impacts on |phi_j|
+	% In fact an interesting development could be the one of generalizing the formulation to the generic k-means training problem. We tried to understand what this work would require. Trivial is to remove the constraints that we added for the balanced problem but in this way the formulation gets different and the step that follow in the procedure of obtaining the final formulation may be more complex than the ones that Matteo presented. An example is what happens on |phi_j|: thanks to the balanced assumption we are allowed to remove the term while in the generic case we should bring the complete formulation to a suitable QUBO. We have to be careful in the discussion on the tuning of parameter alpha since allowing the problem to be more unbalanced is still assuming that the term |phi_j| has been removed.
 
 	% Using the QUBO formulation the authors say that they could also think of formalizing similar clustering models to solve other instances of such problem like: k-medoids and fuzzy C-means
 	% The main and more interesting work that we all can't wait to discover is whether the promises made by the authors are valid when we consider larger datasets
@@ -51,8 +56,6 @@
 		% Our critical view on this paper is mainly focused on the study of the QUBO formulation since we think that this step, in each of the quantum annealing papers describing how to solve a problem in this way, is the most important. This because if we are able to bring the classical optimization problem to the QUBO formulation, more than limitations regarding the hardware of the quantum machine, we are already able to write an algorithm that can be executed on the annealer.
 		% For this reason the first conclusion that we want to address is understanding how complex is to construct the QUBO. To answer this question it means to understand the complexity needed to pass from the equation on the top (the formal classical balanced k-means opt problem) to the one on the bottom (the final QUBO formulation). As we were able to understand from Matteo's description of the QUBO formulation the terms in this equation determine a complexity of O(N^2kd). Since kd < N it means that in general the quantum algorithm performs better than classical balanced k-means O(N^3) and worse than Scikit Learn O(Nkd).
 		
-		% TODO: dire che il fairly balanced è piu verso il balanced -> perche togliendo 1/2phi_j se ci discostiamo troppo andiamo a perdere la assunzione che abbiamo fatto e non ha piu senso --> rendendo alpha looser di poco pensiamo che non crei problemi: quindi funziona per dataset che non sono balanced ma neanche troppo poco balanced
-		
 		\framebreak
 		\small{
 		Hyperparameter $\alpha$ allows to make considerations in the data preparation phase of the clustering algorithm:
@@ -68,7 +71,7 @@
 			\item[$\bullet$] Tuning $\alpha$ allows to prepare the algorithm on how much balanced the dataset will be 
 		\end{itemize}
 		}
-		% The parameter alpha determines the possibility of allowing to violate the constraint of having unbalanced classes. However we understand that if we know that the problem that we are facing is not balanced the Scikit-Learn implementation will perform better, since O(NKd) is better than O(N^2kd). If the problem is balanced the quantum approach has good chances to perform better but we can also use this implementation on datasets that are not completely unbalanced. For example if we have classes that have a difference in the number of points belonging to them. To account for this problem we can tune alpha 
+		% The parameter alpha determines the possibility of allowing to violate the constraint of having unbalanced classes. Remember however that our QUBO formulation is based on the assumptions that clusters have the same size, this is a consequence of removing |phi_j| from the formulation. For this reason, this discussion works well for clustering problems that are almost balanced. This is obvious if we concentrate on what the 3 algorithms that we are studying are made for. Scikit-Learn implementation solves the general problem, hence it is obvious that for a generic problem, choosing this rather than the quantum balanced algorithm will perform better. The opposite happens for a balanced problem, but in this case we also have to face the complexity related to the technology on which we are running our quantum algorithm. What we want to study, tuning alpha is in the middle between these opposites. Matteo showed how alpha is used to loose the constraint on the balancing of the classes: choosing a looser value will allow us to violate the constraint even more. However always remember on the assumption that we made on |phi_j|
 		% Tuning alpha modifies the curvature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allows the possibility to violate a few the constraint
 	
 		\framebreak
@@ -87,10 +90,7 @@
 		% The second consideration related to the qubo formulation is its density and consequently the number of qubits that the problem needs to be embedded on the quantum annealer. As we clearly understood from Matteo's discussion since k binary variables are needed for each of the N points we will have Nk variables in the final problem.
 		% Now the problem needs to be embedded on the quantum annealer and, even  by using the most efficient annealing algorithms this process requires a quadratic time and a quadratic footprint of qubits. This means that the complexity of the number of qubits that are required to embed the problem is O(N^2k^2)
 
-		% It is interesting to compare this complexity to the table reported by the authors for their experiments. We clearly see that in this case the relation is not quadratic but we have to remember that these cases are still very simple and the algorithm upperbound works for the general case	
-		
-		% matte-esse: we should talk about this comment on Friday
-		% TODO: here explain that these are the simplest instances. This means that the quadratic term is not predominant on the linear one. As the complexity of the problem increases the more the quadratic term will be predominant. For instance: 0.0000001x^2 + 0.01x + 0.0001c --> vedere bene l'aspetto dei punti plottandoli
+		% It is interesting to compare this complexity to the table reported by the authors for their experiments. From the table we can see that the relation between the variables and the qubits is still not quadratic. The reason of this is because we are considering problems that are still too simple. For small values it is clear in a relation like 0.0000001x^2 + 0.01x + 0.0001c that the linear and constant term are the ones dominating, while if we increase the size what we will observe is the quadratic upper bound.
 		
 		\framebreak
 		\normalsize
