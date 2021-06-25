@@ -1,6 +1,12 @@
 # Mac
 .DS_Store
 
+# vscode
+*.vscode
+
+# jetbrains
+*.idea
+
 # LaTex
 *.aux
 *.bbl
@@ -13,3 +19,5 @@
 *.nav
 *.snm
 *.synctex.gz
+*.fdb_latexmk
+*.fls
