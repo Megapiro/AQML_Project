@@ -30,7 +30,7 @@
 			
 			\textbf{Total Computing time in quantum approach}
 			\begin{equation}
-				t = t_{QUBO_convertion} + t_{e} + t_{a} + t_{postprocessing}
+				t = t_{QUBO_{convertion}} + t_{e} + t_{a} + t_{postprocessing}
 			\end{equation}
 
 			% here we have 2 metrics for the comparison, the ARI is and indicator
@@ -48,8 +48,7 @@
 		\end{frame}
 
 		\begin{frame}{Data Generation}
-
-			synthetic classification datasets created with \textit{make\_classification} (Scikit-learn)	\\
+			Synthetic classification datasets created with \textit{make\_classification} (Scikit-learn)	\\
 			\textbf{Datasets structure}
 			\begin{itemize}
 				\item[$\bullet$] \textbf{N} points	
@@ -84,7 +83,7 @@
 			\begin{itemize}
 				\item[$\bullet$] \textbf{quantum pre/post-processing} done via the above \textbf{classical} machine
 				\item[$\bullet$] quantum \textbf{anealing} operation \textbf{perfomed 100 times} for each experiment   
-				\item[$\bullet$] only ground state is used % TODO: find out the meaning  
+				\item[$\bullet$] only ground state is used 
 			\end{itemize}			
 
 			% the Hardware used for the experiments is reported in this slide
@@ -147,13 +146,13 @@
 				\item[$\bullet$] Quantum run time for larger problems ($Nk > 64$)
 				\begin{itemize}
 					\item[$\circ$] used to evaluate scalability of the Quantum Approach
-					\item[$\circ$] measure $t_{QUBO_convertion}$ (measurable)
+					\item[$\circ$] measure $t_{QUBO_{convertion}}$ (measurable)
 					\item[$\circ$] estimate embedding time $t_{e}$ (from smaller problems)
 					\item[$\circ$] estimate annealing time $t_{a}$ (constant, averaging smaller problems) 
 					\item[$\circ$] measure $t_{postprocessing}$
 				\end{itemize} 
 			\end{itemize}
-			embedding algorithms chosen \textbf{scales quadratically} in the number of \textbf{binary variables} of the QUBO
+			Embedding algorithms chosen \textbf{scale quadratically} in the number of \textbf{binary variables} of the QUBO
 			\begin{equation}
 				t_{e} = 1.887 \times 10^{-6}(Nk)^2 
 				+ 4.632 \times 10^{-6}(Nk)
@@ -233,7 +232,7 @@
 					\item[$\circ$] quantum is the worse on time 
 					\item[$\circ$] quantum is promising in a future perspective, depending on embedding process optimizations
 					\item[$\circ$] quantum approach scales better w.r.t. to classical \textit{k-means} on $d$  
-					\item[$\circ$] expected: QUBO formulation only requires one comput. related to the dimension of the dataset % TODO: check this better 
+					\item[$\circ$] expected: QUBO formulation only requires one comput. related to the dimension of the dataset
 					\item[$\circ$] \textit{classical balanced k-means} scales better in $d$ w.r.t. to quantum approach 
 					\item[$\circ$] expected: \textit{quantum balanced} $O(N^2kd)$ vs \textit{classical balanced} $O(N^3)$  
 				\end{itemize} 

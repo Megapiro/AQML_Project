@@ -3,14 +3,7 @@
 \subsection{Balanced \textit{k}-Mean}
 	\begin{frame}{Balanced \textit{k}-Means} % FIXME: reorder 3 elements`
 		\small
-		\begin{minipage}{0.5\textwidth} % FIXME: padding
-			\textbf{Advantages over classical approaches}
-			\begin{itemize}
-				\item[$\bullet$] Better targets the global solution of the training problem  
-				\item[$\bullet$] Better theoretic scalability on large datasets
-			\end{itemize}
-		\end{minipage}\hfill
-		\begin{minipage}{0.5\textwidth}
+		\begin{minipage}{0.45\textwidth} % FIXME: padding
 			\textbf{Outline}
 			\begin{itemize}
 				\item[$\bullet$] QUBO formulation and theoretical analysis
@@ -18,8 +11,16 @@
 				\item[$\bullet$] Authors' Conclusions
 				\item[$\bullet$] Our Conclusions, opinions and considerations
 			\end{itemize}
+			\textbf{Advantages over classical approaches}
+			\begin{itemize}
+				\item[$\bullet$] Better targets the global solution of the training problem  
+				\item[$\bullet$] Better theoretic scalability on large datasets
+			\end{itemize}
+		\end{minipage}\hfill
+		\begin{minipage}{0.55\textwidth}
+			\hspace{0.2cm}
+			\includegraphics[scale=0.3]{Iris.png}
 		\end{minipage}
-		\includegraphics[width=4.3cm]{Iris.png}
 	\end{frame}
 	% NOTES: We want to cluster data in balanced similar sets, similarity is 
 	% measured by statistical variance within each cluster
@@ -50,12 +51,11 @@
 		\bigbreak
 		\tiny{ % FIXME: attach to bottom
 			\textcolor{gray}{
-				\begin{minipage}{0.5\textwidth} % FIXME: padding
-					[13] J. A. Hartigan and M. A. Wong, “Algorithm AS 136: A K-Means clustering algorithm” Applied Statistics
-				\end{minipage}\hfill
-				\begin{minipage}{0.5\textwidth} 
+					[13] J. A. Hartigan and M. A. Wong, “A K-Means clustering algorithm” Applied Statistics 
+			}
+			\smallbreak
+			\textcolor{gray}{
 					[18]“Scikit-learn: Machine learning in python,” J. Mach. Learn. Res.
-				\end{minipage}\hfill
 			}
 		}
 	\end{frame}

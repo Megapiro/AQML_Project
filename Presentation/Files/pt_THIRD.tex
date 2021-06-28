@@ -15,8 +15,6 @@
 
 	% REMIND that everything was tested on the 2000q machine and nowadays we have a machine that is more powerull -> Advantage (start to introduce the importance of our last critic)
 
-	% matte-esse: I don't understand this Recall... our last critic? --> lol si questo non è recall ma REMIND
-
 	\begin{frame}{Future Works}
 		\small{
 		\begin{itemize}
@@ -72,7 +70,7 @@
 		\end{itemize}
 		}
 		% The parameter alpha determines the possibility of allowing to violate the constraint of having unbalanced classes. Remember however that our QUBO formulation is based on the assumptions that clusters have the same size, this is a consequence of removing |phi_j| from the formulation. For this reason, this discussion works well for clustering problems that are almost balanced. This is obvious if we concentrate on what the 3 algorithms that we are studying are made for. Scikit-Learn implementation solves the general problem, hence it is obvious that for a generic problem, choosing this rather than the quantum balanced algorithm will perform better. The opposite happens for a balanced problem, but in this case we also have to face the complexity related to the technology on which we are running our quantum algorithm. What we want to study, tuning alpha is in the middle between these opposites. Matteo showed how alpha is used to loose the constraint on the balancing of the classes: choosing a looser value will allow us to violate the constraint even more. However always remember on the assumption that we made on |phi_j|
-		% Tuning alpha modifies the curvature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allows the possibility to violate a few the constraint
+		% Tuning alpha modifies the curvature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allow the possibility to violate a few the constraint
 	
 		\framebreak
 		\textbf{Variables and Density of the QUBO}
