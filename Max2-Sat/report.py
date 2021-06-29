@@ -43,8 +43,8 @@ for t in q_data:
 
 fr = open(report, 'w')
 
-head_str = f'|Benachmark| S | O | T | O_SA | O_RA | total_time |\n'
-init_str = f'|:--------:|:-:|:-:|:-:|:----:|:----:|:----------:|\n'
+head_str = f'| Benchmark | S | O | T | O_SA | O_RA | QPU programming time | QPU sampling time |\n'
+init_str = f'|:---------:|:-:|:-:|:-:|:----:|:----:|:--------------------:|:-----------------:|\n'
 
 fr.write(head_str)
 fr.write(init_str)
@@ -58,9 +58,20 @@ for b in benchmarks:
     # quantum results
     O_SA = q_solutions[b]['O_SA']
     O_RA = q_solutions[b]['O_RA']
-    total_time = q_solutions[b]['total_time']
 
-    str = f'|{b}|S={S} | O={O} | T={T} | O_SA={O_SA} | O_RA={O_RA} | total_time={total_time}|\n'
+    qpu_sampling_time = q_solutions[b]['qpu_sampling_time'] 
+    qpu_anneal_time_per_sample = q_solutions[b]['qpu_anneal_time_per_sample'] 
+    qpu_readout_time_per_sample = q_solutions[b]['qpu_readout_time_per_sample'] 
+    qpu_access_time = q_solutions[b]['qpu_access_time'] 
+    qpu_access_overhead_time = q_solutions[b]['qpu_access_overhead_time'] 
+    qpu_programming_time = q_solutions[b]['qpu_programming_time'] 
+    qpu_delay_time_per_sample = q_solutions[b]['qpu_delay_time_per_sample'] 
+    total_post_processing_time = q_solutions[b]['total_post_processing_time'] 
+    post_processing_overhead_time = q_solutions[b]['post_processing_overhead_time']
+
+    str = f'|{b}|S={S} | O={O} | T={T} | O_SA={O_SA} | O_RA={O_RA} | Tp={qpu_programming_time} | Ts={qpu_sampling_time} |\n'
     fr.write(str)
+
+    
     
         

@@ -7,7 +7,7 @@
 		\textbf{Algorithms used for comparisons}
 		\begin{itemize}
 			\item[$\bullet$] \textbf{balanced quantum k-means} (case study)
-			\item[$\bullet$] \textbf{balanced classical k-means} (authors implementation)
+			\item[$\bullet$] \textbf{balanced classical k-means} (authors implementation of Malinen et al.)
 			\item[$\bullet$] \textbf{classical k-means} (scikit-learn implementation)
 		\end{itemize}
 
@@ -23,8 +23,9 @@
 						
 			\textbf{Adjusted Rand Index (ARI)}
 			\begin{itemize}
-				\item[$\bullet$] compare the similarity of two partitions of a dataset
+				\item[$\bullet$] compare the similarity of two partitions of a dataset 
 				\item[$\bullet$] range from $-1$ to $1$ 
+				\item[$\bullet$] ARI = 0 represent expected value random assignment
 				\item[$\bullet$] used to compare \textbf{target partitions} vs \textbf{clustering partitions} 
 			\end{itemize}
 			
@@ -53,7 +54,6 @@
 			\begin{itemize}
 				\item[$\bullet$] \textbf{N} points	
 				\item[$\bullet$] \textbf{k} classes	
-				\item[$\bullet$] \textbf{1} cluster per class	
 				\item[$\bullet$] \textbf{d} features 
 				\item[$\bullet$] clusters \textbf{centered} on a \textit{d}-dimensional hypercube (with side length $2.0$)  
 				\item[$\bullet$] points generated from a \textbf{normal dist.} about their cluster center (std $1.0$)   
@@ -83,7 +83,6 @@
 			\begin{itemize}
 				\item[$\bullet$] \textbf{quantum pre/post-processing} done via the above \textbf{classical} machine
 				\item[$\bullet$] quantum \textbf{anealing} operation \textbf{perfomed 100 times} for each experiment   
-				\item[$\bullet$] only ground state is used 
 			\end{itemize}			
 
 			% the Hardware used for the experiments is reported in this slide
@@ -93,7 +92,7 @@
 		\end{frame}
 
 		\begin{frame}{Experiments}
-			\textbf{Experiments Setup}
+			\textbf{Quality of Clustering Experiment (ARI)}
 			\begin{itemize}
 				\item[$\bullet$] clustering quality of the 3 algorithms is compared
 				\item[$\bullet$] each algorithm evaluated on different \textbf{problem types}
@@ -223,6 +222,7 @@
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. features (d)}
+			\small
 			\textbf{Setup and Considerations}
 			\begin{itemize}
 				\item[$\bullet$] baselines evaluated on increasing \textbf{features number}
@@ -232,7 +232,12 @@
 					\item[$\circ$] quantum is the worse on time 
 					\item[$\circ$] quantum is promising in a future perspective, depending on embedding process optimizations
 					\item[$\circ$] quantum approach scales better w.r.t. to classical \textit{k-means} on $d$  
-					\item[$\circ$] expected: QUBO formulation only requires one comput. related to the dimension of the dataset
+					%\item[$\circ$] QUBO formulation only requires one comput. related to the dimension of the dataset 
+
+					\item[$\circ$] QUBO formulation only requires one comput. of the distance matrix 
+					% this is because the quantum approach compute the variance though the total variance explained by matteo  
+					\item[$\circ$] classical k-means recomputes distances from centroids at each iteration 
+					% since recompute centroids at each iterations
 					\item[$\circ$] \textit{classical balanced k-means} scales better in $d$ w.r.t. to quantum approach 
 					\item[$\circ$] expected: \textit{quantum balanced} $O(N^2kd)$ vs \textit{classical balanced} $O(N^3)$  
 				\end{itemize} 
