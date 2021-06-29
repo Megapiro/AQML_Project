@@ -1,6 +1,7 @@
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import EmbeddingComposite
 from neal import SimulatedAnnealingSampler
+from tqdm import tqdm
 
 import os
 import numpy as np
@@ -11,9 +12,22 @@ import networkx as nx
 # parameters
 
 TOKEN = 'DEV-2cc3acd9d7df48a4fcad58db19dc214c174b74e5' # API dwave
-BENCHMARK_PATH = 'Max2-Sat/testing_sat/benchmarks'
+#BENCHMARK_PATH = 'Max2-Sat/testing_sat/benchmarks'
+BENCHMARK_PATH = 'testing_sat/benchmarks'
 NUM_READS_SQA = 20
 NUM_READS_QPU = 20
+
+time_labels = [
+'qpu_sampling_time', 
+'qpu_anneal_time_per_sample', 
+'qpu_readout_time_per_sample', 
+'qpu_access_time', 
+'qpu_access_overhead_time', 
+'qpu_programming_time', 
+'qpu_delay_time_per_sample', 
+'total_post_processing_time', 
+'post_processing_overhead_time'
+]
 
 # functions
 
@@ -22,11 +36,11 @@ def extract_clauses(path):
     with open(path, "r") as f:
         # retrieve data from file
         sat = f.readlines()
-        data = sat[0].split(" ")
+        data = sat[2].split(" ")
 
     n_variables = int(data[2]) 
 
-    sat = sat[1:]
+    sat = sat[3:]
     clauses = [x.replace(' 0\n', '') for x in sat]
     
     return clauses, n_variables
@@ -103,13 +117,17 @@ def return_solution(response, Q, c):
 
 # script for finding the optimum obtained both with simulated and real annealing
 
+from time import strftime, gmtime
+timestamp = strftime("%d-%m-%Y-%H:%M:%S", gmtime())
+
 cwd = os.getcwd()
 benchmarks = os.listdir(os.path.join(cwd, BENCHMARK_PATH))
-results = os.path.join(cwd, 'Max2-Sat/testing_sat/Results/Benchmarks_' + os.path.splitext(benchmarks[0])[0] + '_' + os.path.splitext(benchmarks[len(benchmarks)-1])[0] + '.txt')
+#results = os.path.join(cwd, 'Max2-Sat/testing_sat/Results/Benchmarks_' + os.path.splitext(benchmarks[0])[0] + '_' + os.path.splitext(benchmarks[len(benchmarks)-1])[0] + '.txt')
+results = os.path.join(cwd, 'testing_sat/Results/Benchmarks_'+ timestamp +'.txt')
 
 fr = open(results, 'w')
 
-for test in benchmarks:
+for test in tqdm(benchmarks):
     clauses, n_variables = extract_clauses(os.path.join(cwd, BENCHMARK_PATH, test))
     Q, c, QUBO_graph = gen_q(clauses, n_variables)
 
@@ -123,6 +141,15 @@ for test in benchmarks:
     Oy_SA, _ = return_solution(response_SQA.aggregate().record, Q, c)
     Oy_RA, _ = return_solution(response_QPU.aggregate().record, Q, c)
 
-    fr.write(test + ' ' + 'O_SA=' + str(Oy_SA) + ' ' + 'O_RA=' + str(Oy_RA ) + '\n')
+    # time string + total time sum
+    time_str = ''
+    total_time = 0
+    for t in time_labels:
+        time = response_QPU.info["timing"][t]
+        time_str += f'{t}={time} '
+        total_time += time
+    time_str += f'total_time={total_time}'
+
+    fr.write(f'{test} O_SA={str(Oy_SA)} O_RA={str(Oy_RA)} {time_str}\n')
 
 fr.close()

@@ -12,460 +12,233 @@ we report them for simpplicity: (we report only the best optimal result from the
 | O     | Best solution found                                                                          |
 | T     | CPU time (TO for Time Out)                                                                   |
 
-
-|     Instance file name     |         Best solver         | OUR (Simulation) | OUR (Real) |
-|:--------------------------:|:---------------------------:|:----------------:|:----------:|
-| s2v120c1200-1.cnf          | S = OPT O = 161 T = 5.65    |  O = 324         |   O = 300  |
-| s2v120c1200-2.cnf          | S = OPT O = 159 T = 8.40    |                  |            |
-| s2v120c1200-3.cnf          | S = OPT O = 160 T = 2.70    |                  |            |
-| s2v120c1300-1.cnf          | S = OPT O = 180 T = 14.94   |                  |            |
-| s2v120c1300-2.cnf          | S = OPT O = 172 T = 6.29    |                  |            |
-| s2v120c1300-3.cnf          | S = OPT O = 173 T = 5.96    |                  |            |
-| s2v120c1400-1.cnf          | S = OPT O = 197 T = 17.17   |                  |            |
-| s2v120c1400-2.cnf          | S = OPT O = 191 T = 10.06   |                  |            |
-| s2v120c1400-3.cnf          | S = OPT O = 189 T = 8.30    |                  |            |
-| s2v120c1500-1.cnf          | S = OPT O = 211 T = 8.00    |                  |            |
-| s2v120c1500-2.cnf          | S = OPT O = 213 T = 27.02   |                  |            |
-| s2v120c1500-3.cnf          | S = OPT O = 207 T = 6.18    |                  |            |
-| s2v120c1600-1.cnf          | S = OPT O = 233 T = 24.19   |                  |            |
-| s2v120c1600-2.cnf          | S = OPT O = 239 T = 85.74   |                  |            |
-| s2v120c1600-3.cnf          | S = OPT O = 233 T = 29.73   |                  |            |
-| s2v120c1700-1.cnf          | S = OPT O = 257 T = 51.12   |                  |            |
-| s2v120c1700-2.cnf          | S = OPT O = 248 T = 66.38   |                  |            |
-| s2v120c1700-3.cnf          | S = OPT O = 239 T = 5.69    |                  |            |
-| s2v120c1800-1.cnf          | S = OPT O = 291 T = 383.01  |                  |            |
-| s2v120c1800-2.cnf          | S = OPT O = 262 T = 16.59   |                  |            |
-| s2v120c1800-3.cnf          | S = OPT O = 279 T = 64.81   |                  |            |
-| s2v120c1900-1.cnf          | S = OPT O = 293 T = 64.83   |                  |            |
-| s2v120c1900-2.cnf          | S = OPT O = 296 T = 144.99  |                  |            |
-| s2v120c1900-3.cnf          | S = OPT O = 294 T = 88.19   |                  |            |
-| s2v120c2000-1.cnf          | S = OPT O = 307 T = 27.04   |  O = 486         | O = 487    |
-| s2v120c2000-2.cnf          | S = OPT O = 321 T = 651.59  |                  |            |
-| s2v120c2000-3.cnf          | S = OPT O = 307 T = 71.32   |                  |            |
-| s2v120c2100-1.cnf          | S = OPT O = 336 T = 64.23   |                  |            |
-| s2v120c2100-2.cnf          | S = OPT O = 336 T = 691.62  |                  |            |
-| s2v120c2100-3.cnf          | S = OPT O = 332 T = 214.08  |                  |            |
-| s2v120c2200-1.cnf          | S = OPT O = 358 T = 446.53  |                  |            |
-| s2v120c2200-2.cnf          | S = OPT O = 371 T = 1530.60 |                  |            |
-| s2v120c2200-3.cnf          | S = OPT O = 359 T = 336.23  |                  |            |
-| s2v120c2300-1.cnf          | S = OPT O = 380 T = 384.48  |                  |            |
-| s2v120c2300-2.cnf          | S = OPT O = 383 T = 599.46  |                  |            |
-| s2v120c2300-3.cnf          | S = OPT O = 365 T = 80.14   |                  |            |
-| s2v120c2400-1.cnf          | S = OPT O = 389 T = 154.85  |                  |            |
-| s2v120c2400-2.cnf          | S = OPT O = 402 T = 958.04  |                  |            |
-| s2v120c2400-3.cnf          | S = OPT O = 380 T = 41.53   |                  |            |
-| s2v120c2500-1.cnf          | S = OPT O = 418 T = 256.04  |                  |            |
-| s2v120c2500-2.cnf          | S = N/A O = N/A T = TO      |                  |            |
-| s2v120c2500-3.cnf          | S = OPT O = 425 T = 898.11  |                  |            |
-| s2v120c2600-1.cnf          | S = OPT O = 439 T = 877.77  |  O = 671         | O = 663    |
-| s2v120c2600-2.cnf          | S = N/A O = N/A T = TO      |                  |            |
-| s2v120c2600-3.cnf          | S = OPT O = 440 T = 447.94  |                  |            |
-| s2v140c1200-1.cnf          | S = OPT O = 144 T = 6.48    |                  |            |
-| s2v140c1200-2.cnf          | S = OPT O = 155 T = 156.32  |                  |            |
-| s2v140c1200-3.cnf          | S = OPT O = 155 T = 17.66   |                  |            |
-| s2v140c1300-1.cnf          | S = OPT O = 162 T = 23.75   |                  |            |
-| s2v140c1300-2.cnf          | S = OPT O = 171 T = 109.37  |                  |            |
-| s2v140c1300-3.cnf          | S = OPT O = 168 T = 30.82   |                  |            |
-| s2v140c1400-1.cnf          | S = OPT O = 182 T = 46.33   |                  |            |
-| s2v140c1400-2.cnf          | S = OPT O = 178 T = 24.86   |                  |            |
-| s2v140c1400-3.cnf          | S = OPT O = 193 T = 144.40  |                  |            |
-| s2v140c1500-1.cnf          | S = OPT O = 205 T = 145.96  |                  |            |
-| s2v140c1500-2.cnf          | S = OPT O = 199 T = 129.94  |                  |            |
-| s2v140c1500-3.cnf          | S = OPT O = 212 T = 450.64  |                  |            |
-| s2v140c1600-1.cnf          | S = OPT O = 221 T = 99.13   |                  |            |
-| s2v140c1600-2.cnf          | S = OPT O = 221 T = 160.58  |                  |            |
-| s2v140c1600-3.cnf          | S = OPT O = 226 T = 246.25  |                  |            |
-| s2v140c1700-1.cnf          | S = N/A O = N/A T = TO      |                  |            |
-| s2v140c1700-2.cnf          | S = OPT O = 242 T = 206.76  |                  |            |
-| s2v140c1700-3.cnf          | S = OPT O = 236 T = 69.70   |                  |            |
-| s2v140c1800-1.cnf          | S = OPT O = 254 T = 324.26  |                  |            |
-| s2v140c1800-2.cnf          | S = OPT O = 257 T = 132.36  |                  |            |
-| s2v140c1800-3.cnf          | S = OPT O = 255 T = 67.50   |                  |            |
-| s2v140c1900-1.cnf          | S = N/A O = N/A T = TO      |                  |            |
-| s2v140c1900-2.cnf          | S = OPT O = 273 T = 53.78   |                  |            |
-| s2v140c1900-3.cnf          | S = OPT O = 278 T = 268.61  |                  |            |
-| s2v140c2000-1.cnf          | S = OPT O = 298 T = 535.22  |                  |            |
-| s2v140c2000-2.cnf          | S = OPT O = 308 T = 1178.33 |                  |            |
-| s2v140c2000-3.cnf          | S = OPT O = 296 T = 269.67  |                  |            |
-| s2v140c2100-1.cnf          | S = OPT O = 293 T = 33.99   |                  |            |
-| s2v140c2100-2.cnf          | S = OPT O = 310 T = 190.04  |                  |            |
-| s2v140c2100-3.cnf          | S = OPT O = 319 T = 593.53  |                  |            |
-| s2v140c2200-1.cnf          | S = OPT O = 336 T = 1014.50 |                  |            |
-| s2v140c2200-2.cnf          | S = OPT O = 332 T = 952.96  |                  |            |
-| s2v140c2200-3.cnf          | S = OPT O = 329 T = 397.21  |                  |            |
-| s2v140c2300-1.cnf          | S = N/A O = N/A T = TO      |                  |            |
-| s2v140c2300-2.cnf          | S = N/A O = N/A T = TO      |                  |            |
-| s2v140c2300-3.cnf          | S = OPT O = 352 T = 880.10  |                  |            |
-| s2v140c2400-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2400-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2400-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2500-1.cnf          | S = OPT O = 393 T = 837.06  |||
-| s2v140c2500-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2500-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2600-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2600-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v140c2600-3.cnf          | S = OPT O = 406 T = 961.82  |||
-| s2v160c1200-1.cnf          | S = OPT O = 142 T = 43.42   |||
-| s2v160c1200-2.cnf          | S = OPT O = 133 T = 8.96    |||
-| s2v160c1200-3.cnf          | S = OPT O = 143 T = 86.49   |||
-| s2v160c1300-1.cnf          | S = OPT O = 167 T = 337.15  |||
-| s2v160c1300-2.cnf          | S = OPT O = 139 T = 2.90    |||
-| s2v160c1300-3.cnf          | S = OPT O = 157 T = 86.01   |||
-| s2v160c1400-1.cnf          | S = OPT O = 166 T = 36.36   |||
-| s2v160c1400-2.cnf          | S = OPT O = 164 T = 38.99   |||
-| s2v160c1400-3.cnf          | S = OPT O = 167 T = 21.86   |||
-| s2v160c1500-1.cnf          | S = OPT O = 183 T = 14.22   |||
-| s2v160c1500-2.cnf          | S = OPT O = 200 T = 905.90  |||
-| s2v160c1500-3.cnf          | S = OPT O = 184 T = 62.16   |||
-| s2v160c1600-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c1600-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c1600-3.cnf          | S = OPT O = 213 T = 743.89  |||
-| s2v160c1700-1.cnf          | S = OPT O = 226 T = 659.70  |||
-| s2v160c1700-2.cnf          | S = OPT O = 230 T = 572.97  |||
-| s2v160c1700-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c1800-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c1800-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c1800-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c1900-1.cnf          | S = OPT O = 261 T = 1241.31 |||
-| s2v160c1900-2.cnf          | S = OPT O = 262 T = 1480.92 |||
-| s2v160c1900-3.cnf          | S = OPT O = 264 T = 995.23  |||
-| s2v160c2000-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2000-2.cnf          | S = OPT O = 272 T = 92.52   |||
-| s2v160c2000-3.cnf          | S = OPT O = 282 T = 790.73  |||
-| s2v160c2100-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2100-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2100-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2200-1.cnf          | S = OPT O = 310 T = 642.57  |||
-| s2v160c2200-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2200-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2300-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2300-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2300-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2400-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2400-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2400-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2500-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2500-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2500-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2600-1.cnf          | S = OPT O = 392 T = 1596.27 |||
-| s2v160c2600-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v160c2600-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1200-1.cnf          | S = OPT O = 134 T = 147.86  |||
-| s2v180c1200-2.cnf          | S = OPT O = 130 T = 79.94   |||
-| s2v180c1200-3.cnf          | S = OPT O = 131 T = 156.38  |||
-| s2v180c1200-4.cnf          | S = OPT O = 128 T = 135.96  |||
-| s2v180c1300-1.cnf          | S = OPT O = 153 T = 646.96  |||
-| s2v180c1300-2.cnf          | S = OPT O = 138 T = 43.39   |||
-| s2v180c1300-3.cnf          | S = OPT O = 150 T = 165.80  |||
-| s2v180c1300-4.cnf          | S = OPT O = 149 T = 288.42  |||
-| s2v180c1400-1.cnf          | S = OPT O = 165 T = 433.80  |||
-| s2v180c1400-2.cnf          | S = OPT O = 165 T = 514.80  |||
-| s2v180c1400-3.cnf          | S = OPT O = 156 T = 133.24  |||
-| s2v180c1400-4.cnf          | S = OPT O = 160 T = 245.56  |||
-| s2v180c1500-1.cnf          | S = OPT O = 184 T = 1633.85 |||
-| s2v180c1500-2.cnf          | S = OPT O = 180 T = 1434.90 |||
-| s2v180c1500-3.cnf          | S = OPT O = 179 T = 291.29  |||
-| s2v180c1500-4.cnf          | S = OPT O = 181 T = 406.46  |||
-| s2v180c1600-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1600-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1600-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1600-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1700-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1700-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1700-3.cnf          | S = OPT O = 209 T = 1066.08 |||
-| s2v180c1700-4.cnf          | S = OPT O = 206 T = 266.32  |||
-| s2v180c1800-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1800-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1800-3.cnf          | S = OPT O = 232 T = 1359.50 |||
-| s2v180c1800-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1900-1.cnf          | S = OPT O = 245 T = 657.85  |||
-| s2v180c1900-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1900-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c1900-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2000-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2000-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2000-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2000-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2100-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2100-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2100-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2100-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2200-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2200-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2200-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v180c2200-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1200-1.cnf          | S = OPT O = 118 T = 133.09  |||
-| s2v200c1200-2.cnf          | S = OPT O = 127 T = 332.19  |||
-| s2v200c1200-3.cnf          | S = OPT O = 125 T = 475.72  |||
-| s2v200c1200-4.cnf          | S = OPT O = 115 T = 29.65   |||
-| s2v200c1200-5.cnf          | S = OPT O = 117 T = 148.82  |||
-| s2v200c1200-6.cnf          | S = OPT O = 127 T = 275.54  |||
-| s2v200c1200-7.cnf          | S = OPT O = 112 T = 17.12   |||
-| s2v200c1300-1.cnf          | S = OPT O = 144 T = 655.54  |||
-| s2v200c1300-2.cnf          | S = OPT O = 143 T = 874.62  |||
-| s2v200c1300-3.cnf          | S = OPT O = 121 T = 62.43   |||
-| s2v200c1300-4.cnf          | S = OPT O = 139 T = 306.59  |||
-| s2v200c1300-5.cnf          | S = OPT O = 142 T = 572.57  |||
-| s2v200c1300-6.cnf          | S = OPT O = 134 T = 517.50  |||
-| s2v200c1300-7.cnf          | S = OPT O = 128 T = 32.98   |||
-| s2v200c1400-1.cnf          | S = OPT O = 156 T = 756.32  |||
-| s2v200c1400-2.cnf          | S = OPT O = 147 T = 156.52  |||
-| s2v200c1400-3.cnf          | S = OPT O = 150 T = 182.12  |||
-| s2v200c1400-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1400-5.cnf          | S = OPT O = 153 T = 342.49  |||
-| s2v200c1400-6.cnf          | S = OPT O = 145 T = 115.08  |||
-| s2v200c1400-7.cnf          | S = OPT O = 142 T = 135.26  |||
-| s2v200c1500-1.cnf          | S = OPT O = 165 T = 177.97  |||
-| s2v200c1500-2.cnf          | S = OPT O = 165 T = 388.23  |||
-| s2v200c1500-3.cnf          | S = OPT O = 165 T = 759.47  |||
-| s2v200c1500-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1500-5.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1500-6.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1500-7.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1600-1.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1600-2.cnf          | S = OPT O = 178 T = 307.70  |||
-| s2v200c1600-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1600-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1600-5.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1600-6.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1600-7.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1700-1.cnf          | S = OPT O = 193 T = 146.26  |||
-| s2v200c1700-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1700-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1700-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1700-5.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1700-6.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1700-7.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1800-1.cnf          | S = OPT O = 206 T = 383.34  |||
-| s2v200c1800-2.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1800-3.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1800-4.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1800-5.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1800-6.cnf          | S = N/A O = N/A T = TO      |||
-| s2v200c1800-7.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-1.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-10.cnf         | S = N/A O = N/A T = TO      |||
-| s3v110c1000-2.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-3.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-4.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-5.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-6.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-7.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1000-8.cnf          | S = OPT O = 26 T = 1427.23  |||
-| s3v110c1000-9.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-1.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-10.cnf         | S = N/A O = N/A T = TO      |||
-| s3v110c1100-2.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-3.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-4.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-5.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-6.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-7.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-8.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c1100-9.cnf          | S = N/A O = N/A T = TO      |||
-| s3v110c700-1.cnf           | S = OPT O = 11 T = 57.81    |||
-| s3v110c700-10.cnf          | S = OPT O = 9 T = 11.36     |||
-| s3v110c700-2.cnf           | S = OPT O = 12 T = 107.37   |||
-| s3v110c700-3.cnf           | S = OPT O = 10 T = 27.60    |||
-| s3v110c700-4.cnf           | S = OPT O = 11 T = 41.32    |||
-| s3v110c700-5.cnf           | S = OPT O = 10 T = 28.59    |||
-| s3v110c700-6.cnf           | S = OPT O = 11 T = 52.64    |||
-| s3v110c700-7.cnf           | S = OPT O = 9 T = 17.50     |||
-| s3v110c700-8.cnf           | S = OPT O = 11 T = 57.96    |||
-| s3v110c700-9.cnf           | S = OPT O = 10 T = 42.96    |||
-| s3v110c800-1.cnf           | S = OPT O = 17 T = 315.01   |||
-| s3v110c800-10.cnf          | S = OPT O = 14 T = 73.99    |||
-| s3v110c800-2.cnf           | S = OPT O = 17 T = 411.69   |||
-| s3v110c800-3.cnf           | S = OPT O = 15 T = 167.31   |||
-| s3v110c800-4.cnf           | S = OPT O = 18 T = 256.45   |||
-| s3v110c800-5.cnf           | S = OPT O = 17 T = 243.27   |||
-| s3v110c800-6.cnf           | S = OPT O = 18 T = 434.56   |||
-| s3v110c800-7.cnf           | S = OPT O = 16 T = 210.59   |||
-| s3v110c800-8.cnf           | S = OPT O = 17 T = 482.74   |||
-| s3v110c800-9.cnf           | S = OPT O = 16 T = 142.61   |||
-| s3v110c900-1.cnf           | S = OPT O = 22 T = 782.05   |||
-| s3v110c900-10.cnf          | S = OPT O = 21 T = 614.51   |||
-| s3v110c900-2.cnf           | S = OPT O = 22 T = 1038.44  |||
-| s3v110c900-3.cnf           | S = OPT O = 17 T = 77.23    |||
-| s3v110c900-4.cnf           | S = OPT O = 21 T = 483.81   |||
-| s3v110c900-5.cnf           | S = OPT O = 22 T = 537.59   |||
-| s3v110c900-6.cnf           | S = OPT O = 23 T = 764.33   |||
-| s3v110c900-7.cnf           | S = OPT O = 21 T = 849.63   |||
-| s3v110c900-8.cnf           | S = OPT O = 22 T = 601.91   |||
-| s3v110c900-9.cnf           | S = N/A O = N/A T = TO      |||
-| s3v70c1000-1.cnf           | S = OPT O = 47 T = 123.08   |||
-| s3v70c1000-2.cnf           | S = OPT O = 43 T = 56.66    |||
-| s3v70c1000-3.cnf           | S = OPT O = 45 T = 78.94    |||
-| s3v70c1000-4.cnf           | S = OPT O = 47 T = 122.22   |||
-| s3v70c1000-5.cnf           | S = OPT O = 42 T = 47.84    |||
-| s3v70c1100-1.cnf           | S = OPT O = 56 T = 331.47   |||
-| s3v70c1100-2.cnf           | S = OPT O = 55 T = 227.34   |||
-| s3v70c1100-3.cnf           | S = OPT O = 53 T = 136.06   |||
-| s3v70c1100-4.cnf           | S = OPT O = 52 T = 169.47   |||
-| s3v70c1100-5.cnf           | S = OPT O = 53 T = 184.75   |||
-| s3v70c1200-1.cnf           | S = OPT O = 66 T = 752.93   |||
-| s3v70c1200-2.cnf           | S = OPT O = 63 T = 322.68   |||
-| s3v70c1200-3.cnf           | S = OPT O = 65 T = 608.15   |||
-| s3v70c1200-4.cnf           | S = OPT O = 67 T = 1011.74  |||
-| s3v70c1200-5.cnf           | S = OPT O = 65 T = 544.98   |||
-| s3v70c1300-1.cnf           | S = OPT O = 75 T = 1139.98  |||
-| s3v70c1300-2.cnf           | S = OPT O = 74 T = 946.71   |||
-| s3v70c1300-3.cnf           | S = OPT O = 70 T = 708.07   |||
-| s3v70c1300-4.cnf           | S = OPT O = 68 T = 316.19   |||
-| s3v70c1300-5.cnf           | S = OPT O = 70 T = 650.70   |||
-| s3v70c1400-1.cnf           | S = OPT O = 78 T = 705.64   |||
-| s3v70c1400-2.cnf           | S = OPT O = 83 T = 1309.01  |||
-| s3v70c1400-3.cnf           | S = OPT O = 79 T = 990.89   |||
-| s3v70c1400-4.cnf           | S = OPT O = 75 T = 284.52   |||
-| s3v70c1400-5.cnf           | S = OPT O = 82 T = 1062.63  |||
-| s3v70c1500-1.cnf           | S = N/A O = N/A T = TO      |||
-| s3v70c1500-2.cnf           | S = OPT O = 89 T = 1182.99  |||
-| s3v70c1500-3.cnf           | S = OPT O = 86 T = 893.82   |||
-| s3v70c1500-4.cnf           | S = N/A O = N/A T = TO      |||
-| s3v70c1500-5.cnf           | S = N/A O = N/A T = TO      |||
-| s3v70c700-1.cnf            | S = OPT O = 21 T = 5.00     |||
-| s3v70c700-2.cnf            | S = OPT O = 21 T = 7.06     |||
-| s3v70c700-3.cnf            | S = OPT O = 25 T = 14.14    |||
-| s3v70c700-4.cnf            | S = OPT O = 24 T = 13.83    |||
-| s3v70c700-5.cnf            | S = OPT O = 22 T = 4.61     |||
-| s3v70c800-1.cnf            | S = OPT O = 31 T = 27.20    |||
-| s3v70c800-2.cnf            | S = OPT O = 34 T = 81.33    |||
-| s3v70c800-3.cnf            | S = OPT O = 30 T = 16.76    |||
-| s3v70c800-4.cnf            | S = OPT O = 28 T = 15.14    |||
-| s3v70c800-5.cnf            | S = OPT O = 31 T = 26.16    |||
-| s3v70c900-1.cnf            | S = OPT O = 39 T = 67.52    |||
-| s3v70c900-2.cnf            | S = OPT O = 38 T = 59.97    |||
-| s3v70c900-3.cnf            | S = OPT O = 39 T = 53.09    |||
-| s3v70c900-4.cnf            | S = OPT O = 39 T = 54.46    |||
-| s3v70c900-5.cnf            | S = OPT O = 40 T = 87.16    |||
-| s3v90c1000-1.cnf           | S = OPT O = 34 T = 241.17   |||
-| s3v90c1000-2.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1000-3.cnf           | S = OPT O = 39 T = 1687.82  |||
-| s3v90c1000-4.cnf           | S = OPT O = 34 T = 264.05   |||
-| s3v90c1000-5.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1000-6.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1000-7.cnf           | S = OPT O = 38 T = 963.23   |||
-| s3v90c1100-1.cnf           | S = OPT O = 44 T = 1495.14  |||
-| s3v90c1100-2.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1100-3.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1100-4.cnf           | S = OPT O = 43 T = 1729.54  |||
-| s3v90c1100-5.cnf           | S = OPT O = 44 T = 1781.90  |||
-| s3v90c1100-6.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1100-7.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1200-1.cnf           | S = OPT O = 47 T = 1783.02  |||
-| s3v90c1200-2.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1200-3.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1200-4.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1200-5.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1200-6.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1200-7.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-1.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-2.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-3.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-4.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-5.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-6.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c1300-7.cnf           | S = N/A O = N/A T = TO      |||
-| s3v90c700-1.cnf            | S = OPT O = 16 T = 32.64    |||
-| s3v90c700-2.cnf            | S = OPT O = 17 T = 42.27    |||
-| s3v90c700-3.cnf            | S = OPT O = 15 T = 19.32    |||
-| s3v90c700-4.cnf            | S = OPT O = 18 T = 52.16    |||
-| s3v90c700-5.cnf            | S = OPT O = 16 T = 26.75    |||
-| s3v90c700-6.cnf            | S = OPT O = 18 T = 59.07    |||
-| s3v90c700-7.cnf            | S = OPT O = 18 T = 63.00    |||
-| s3v90c800-1.cnf            | S = OPT O = 22 T = 111.53   |||
-| s3v90c800-2.cnf            | S = OPT O = 23 T = 132.89   |||
-| s3v90c800-3.cnf            | S = OPT O = 23 T = 138.70   |||
-| s3v90c800-4.cnf            | S = OPT O = 20 T = 47.16    |||
-| s3v90c800-5.cnf            | S = OPT O = 24 T = 242.87   |||
-| s3v90c800-6.cnf            | S = OPT O = 26 T = 447.20   |||
-| s3v90c800-7.cnf            | S = OPT O = 24 T = 199.84   |||
-| s3v90c900-1.cnf            | S = OPT O = 28 T = 142.76   |||
-| s3v90c900-2.cnf            | S = OPT O = 28 T = 190.45   |||
-| s3v90c900-3.cnf            | S = OPT O = 32 T = 545.30   |||
-| s3v90c900-4.cnf            | S = OPT O = 28 T = 219.32   |||
-| s3v90c900-5.cnf            | S = OPT O = 25 T = 55.30    |||
-| s3v90c900-6.cnf            | S = OPT O = 30 T = 341.01   |||
-| s3v90c900-7.cnf            | S = OPT O = 27 T = 153.47   |||
-| HG-3SAT-V250-C1000-1.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-10.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-100.cnf | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-11.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-12.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-13.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-14.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-15.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-16.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-17.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-18.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-19.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-2.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-20.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-21.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-22.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-23.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-24.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-3.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-4.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-5.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-6.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-7.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-8.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V250-C1000-9.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-1.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-10.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-100.cnf | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-11.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-12.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-13.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-14.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-15.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-16.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-17.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-18.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-19.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-2.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-20.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-21.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-22.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-23.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-24.cnf  | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-3.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-4.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-5.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-6.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-7.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-8.cnf   | S = N/A O = N/A T = TO      |||
-| HG-3SAT-V300-C1200-9.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V100-C900-14.cnf   | S = OPT O = 2 T = 844.23    |||
-| HG-4SAT-V100-C900-19.cnf   | S = OPT O = 2 T = 1458.20   |||
-| HG-4SAT-V100-C900-2.cnf    | S = OPT O = 2 T = 872.23    |||
-| HG-4SAT-V100-C900-20.cnf   | S = OPT O = 2 T = 694.04    |||
-| HG-4SAT-V100-C900-23.cnf   | S = OPT O = 2 T = 523.58    |||
-| HG-4SAT-V100-C900-4.cnf    | S = OPT O = 2 T = 962.72    |||
-| HG-4SAT-V100-C900-7.cnf    | S = OPT O = 2 T = 992.69    |||
-| HG-4SAT-V150-C1350-1.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-10.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-100.cnf | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-11.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-12.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-13.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-14.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-15.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-16.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-17.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-18.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-19.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-2.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-20.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-21.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-22.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-23.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-24.cnf  | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-3.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-4.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-5.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-6.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-7.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-8.cnf   | S = N/A O = N/A T = TO      |||
-| HG-4SAT-V150-C1350-9.cnf   | S = N/A O = N/A T = TO      |||
+|Benachmark| S | O | T | O_SA | O_RA | total_time |
+|:--------:|:-:|:-:|:-:|:----:|:----:|:----------:|
+|s2v120c1200-1.cnf|S=OPT | O=161 | T=5.65 | O_SA=324.0 | O_RA=312.0 | total_time=56081|
+|s2v120c1200-2.cnf|S=OPT | O=159 | T=8.40 | O_SA=299.0 | O_RA=289.0 | total_time=58377|
+|s2v120c1200-3.cnf|S=OPT | O=160 | T=2.70 | O_SA=294.0 | O_RA=290.0 | total_time=52135|
+|s2v120c1300-1.cnf|S=OPT | O=180 | T=14.94 | O_SA=355.0 | O_RA=325.0 | total_time=52427|
+|s2v120c1300-2.cnf|S=OPT | O=172 | T=6.29 | O_SA=312.0 | O_RA=305.0 | total_time=56968|
+|s2v120c1300-3.cnf|S=OPT | O=173 | T=5.96 | O_SA=334.0 | O_RA=307.0 | total_time=56810|
+|s2v120c1400-1.cnf|S=OPT | O=197 | T=17.17 | O_SA=374.0 | O_RA=368.0 | total_time=58082|
+|s2v120c1400-2.cnf|S=OPT | O=191 | T=10.06 | O_SA=349.0 | O_RA=338.0 | total_time=51453|
+|s2v120c1400-3.cnf|S=OPT | O=189 | T=8.30 | O_SA=378.0 | O_RA=381.0 | total_time=58637|
+|s2v120c1500-1.cnf|S=OPT | O=211 | T=8.00 | O_SA=390.0 | O_RA=401.0 | total_time=57724|
+|s2v120c1500-2.cnf|S=OPT | O=213 | T=27.02 | O_SA=370.0 | O_RA=390.0 | total_time=63638|
+|s2v120c1500-3.cnf|S=OPT | O=207 | T=6.18 | O_SA=378.0 | O_RA=394.0 | total_time=52068|
+|s2v120c1600-1.cnf|S=OPT | O=233 | T=24.19 | O_SA=427.0 | O_RA=408.0 | total_time=51795|
+|s2v120c1600-2.cnf|S=OPT | O=239 | T=85.74 | O_SA=389.0 | O_RA=402.0 | total_time=52411|
+|s2v120c1600-3.cnf|S=OPT | O=233 | T=29.73 | O_SA=403.0 | O_RA=405.0 | total_time=52445|
+|s2v120c1700-1.cnf|S=OPT | O=257 | T=51.12 | O_SA=431.0 | O_RA=459.0 | total_time=57649|
+|s2v120c1700-2.cnf|S=OPT | O=248 | T=66.38 | O_SA=421.0 | O_RA=406.0 | total_time=50525|
+|s2v120c1700-3.cnf|S=OPT | O=239 | T=5.69 | O_SA=444.0 | O_RA=454.0 | total_time=52101|
+|s2v120c1800-1.cnf|S=OPT | O=291 | T=383.01 | O_SA=461.0 | O_RA=464.0 | total_time=64125|
+|s2v120c1800-2.cnf|S=OPT | O=262 | T=16.59 | O_SA=436.0 | O_RA=481.0 | total_time=54417|
+|s2v120c1800-3.cnf|S=OPT | O=279 | T=64.81 | O_SA=459.0 | O_RA=441.0 | total_time=56473|
+|s2v120c1900-1.cnf|S=OPT | O=293 | T=64.83 | O_SA=491.0 | O_RA=492.0 | total_time=57554|
+|s2v120c1900-2.cnf|S=OPT | O=296 | T=144.99 | O_SA=478.0 | O_RA=478.0 | total_time=55503|
+|s2v120c1900-3.cnf|S=OPT | O=294 | T=88.19 | O_SA=499.0 | O_RA=476.0 | total_time=51903|
+|s2v120c2000-1.cnf|S=OPT | O=307 | T=27.04 | O_SA=489.0 | O_RA=500.0 | total_time=57147|
+|s2v120c2000-2.cnf|S=OPT | O=321 | T=651.59 | O_SA=513.0 | O_RA=512.0 | total_time=57260|
+|s2v120c2000-3.cnf|S=OPT | O=307 | T=71.32 | O_SA=474.0 | O_RA=472.0 | total_time=53119|
+|s2v120c2100-1.cnf|S=OPT | O=336 | T=64.23 | O_SA=513.0 | O_RA=492.0 | total_time=74628|
+|s2v120c2100-2.cnf|S=OPT | O=336 | T=691.62 | O_SA=508.0 | O_RA=505.0 | total_time=57832|
+|s2v120c2100-3.cnf|S=OPT | O=332 | T=214.08 | O_SA=542.0 | O_RA=487.0 | total_time=58154|
+|s2v120c2200-1.cnf|S=OPT | O=358 | T=446.53 | O_SA=559.0 | O_RA=547.0 | total_time=64228|
+|s2v120c2200-2.cnf|S=OPT | O=371 | T=1530.60 | O_SA=532.0 | O_RA=560.0 | total_time=51865|
+|s2v120c2200-3.cnf|S=OPT | O=359 | T=336.23 | O_SA=561.0 | O_RA=573.0 | total_time=70046|
+|s2v120c2300-1.cnf|S=OPT | O=380 | T=384.48 | O_SA=550.0 | O_RA=554.0 | total_time=58143|
+|s2v120c2300-2.cnf|S=OPT | O=383 | T=599.46 | O_SA=570.0 | O_RA=569.0 | total_time=51588|
+|s2v120c2300-3.cnf|S=OPT | O=365 | T=80.14 | O_SA=554.0 | O_RA=519.0 | total_time=52026|
+|s2v120c2400-1.cnf|S=OPT | O=389 | T=154.85 | O_SA=617.0 | O_RA=596.0 | total_time=58912|
+|s2v120c2400-2.cnf|S=OPT | O=402 | T=958.04 | O_SA=596.0 | O_RA=596.0 | total_time=50544|
+|s2v120c2400-3.cnf|S=OPT | O=380 | T=41.53 | O_SA=624.0 | O_RA=606.0 | total_time=50890|
+|s2v120c2500-1.cnf|S=OPT | O=418 | T=256.04 | O_SA=605.0 | O_RA=606.0 | total_time=51680|
+|s2v120c2500-2.cnf|S=N/A | O=N/A | T=TO | O_SA=620.0 | O_RA=622.0 | total_time=57836|
+|s2v120c2500-3.cnf|S=OPT | O=425 | T=898.11 | O_SA=656.0 | O_RA=626.0 | total_time=58180|
+|s2v120c2600-1.cnf|S=OPT | O=439 | T=877.77 | O_SA=687.0 | O_RA=654.0 | total_time=60229|
+|s2v120c2600-2.cnf|S=N/A | O=N/A | T=TO | O_SA=620.0 | O_RA=643.0 | total_time=51917|
+|s2v120c2600-3.cnf|S=OPT | O=440 | T=447.94 | O_SA=618.0 | O_RA=643.0 | total_time=52342|
+|s2v140c1200-1.cnf|S=OPT | O=144 | T=6.48 | O_SA=302.0 | O_RA=269.0 | total_time=57219|
+|s2v140c1200-2.cnf|S=OPT | O=155 | T=156.32 | O_SA=329.0 | O_RA=308.0 | total_time=58198|
+|s2v140c1200-3.cnf|S=OPT | O=155 | T=17.66 | O_SA=274.0 | O_RA=282.0 | total_time=52410|
+|s2v140c1300-1.cnf|S=OPT | O=162 | T=23.75 | O_SA=314.0 | O_RA=308.0 | total_time=51725|
+|s2v140c1300-2.cnf|S=OPT | O=171 | T=109.37 | O_SA=326.0 | O_RA=344.0 | total_time=57487|
+|s2v140c1300-3.cnf|S=OPT | O=168 | T=30.82 | O_SA=309.0 | O_RA=334.0 | total_time=51785|
+|s2v140c1400-1.cnf|S=OPT | O=182 | T=46.33 | O_SA=333.0 | O_RA=353.0 | total_time=57303|
+|s2v140c1400-2.cnf|S=OPT | O=178 | T=24.86 | O_SA=316.0 | O_RA=358.0 | total_time=53263|
+|s2v140c1400-3.cnf|S=OPT | O=193 | T=144.40 | O_SA=329.0 | O_RA=333.0 | total_time=52002|
+|s2v140c1500-1.cnf|S=OPT | O=205 | T=145.96 | O_SA=354.0 | O_RA=382.0 | total_time=51909|
+|s2v140c1500-2.cnf|S=OPT | O=199 | T=129.94 | O_SA=354.0 | O_RA=364.0 | total_time=54138|
+|s2v140c1500-3.cnf|S=OPT | O=212 | T=450.64 | O_SA=352.0 | O_RA=392.0 | total_time=56669|
+|s2v140c1600-1.cnf|S=OPT | O=221 | T=99.13 | O_SA=348.0 | O_RA=375.0 | total_time=57599|
+|s2v140c1600-2.cnf|S=OPT | O=221 | T=160.58 | O_SA=379.0 | O_RA=400.0 | total_time=52668|
+|s2v140c1600-3.cnf|S=OPT | O=226 | T=246.25 | O_SA=385.0 | O_RA=374.0 | total_time=64893|
+|s2v140c1700-1.cnf|S=N/A | O=N/A | T=TO | O_SA=447.0 | O_RA=428.0 | total_time=51491|
+|s2v140c1700-2.cnf|S=OPT | O=242 | T=206.76 | O_SA=415.0 | O_RA=424.0 | total_time=57321|
+|s2v140c1700-3.cnf|S=OPT | O=236 | T=69.70 | O_SA=453.0 | O_RA=436.0 | total_time=57713|
+|s2v140c1800-1.cnf|S=OPT | O=254 | T=324.26 | O_SA=459.0 | O_RA=439.0 | total_time=50742|
+|s2v140c1800-2.cnf|S=OPT | O=257 | T=132.36 | O_SA=474.0 | O_RA=430.0 | total_time=58078|
+|s2v140c1800-3.cnf|S=OPT | O=255 | T=67.50 | O_SA=458.0 | O_RA=410.0 | total_time=51462|
+|s2v140c1900-1.cnf|S=N/A | O=N/A | T=TO | O_SA=464.0 | O_RA=469.0 | total_time=52425|
+|s2v140c1900-2.cnf|S=OPT | O=273 | T=53.78 | O_SA=467.0 | O_RA=466.0 | total_time=56203|
+|s2v140c1900-3.cnf|S=OPT | O=278 | T=268.61 | O_SA=486.0 | O_RA=457.0 | total_time=58942|
+|s2v140c2000-1.cnf|S=OPT | O=298 | T=535.22 | O_SA=451.0 | O_RA=474.0 | total_time=58032|
+|s2v140c2000-2.cnf|S=OPT | O=308 | T=1178.33 | O_SA=536.0 | O_RA=529.0 | total_time=58567|
+|s2v140c2000-3.cnf|S=OPT | O=296 | T=269.67 | O_SA=515.0 | O_RA=496.0 | total_time=50890|
+|s2v140c2100-1.cnf|S=OPT | O=293 | T=33.99 | O_SA=485.0 | O_RA=502.0 | total_time=51328|
+|s2v140c2100-2.cnf|S=OPT | O=310 | T=190.04 | O_SA=505.0 | O_RA=516.0 | total_time=56923|
+|s2v140c2100-3.cnf|S=OPT | O=319 | T=593.53 | O_SA=511.0 | O_RA=545.0 | total_time=57047|
+|s2v140c2200-1.cnf|S=OPT | O=336 | T=1014.50 | O_SA=571.0 | O_RA=549.0 | total_time=57802|
+|s2v140c2200-2.cnf|S=OPT | O=332 | T=952.96 | O_SA=537.0 | O_RA=528.0 | total_time=55645|
+|s2v140c2200-3.cnf|S=OPT | O=329 | T=397.21 | O_SA=562.0 | O_RA=574.0 | total_time=51201|
+|s2v140c2300-1.cnf|S=N/A | O=N/A | T=TO | O_SA=574.0 | O_RA=558.0 | total_time=52981|
+|s2v140c2300-2.cnf|S=N/A | O=N/A | T=TO | O_SA=581.0 | O_RA=553.0 | total_time=61672|
+|s2v140c2300-3.cnf|S=OPT | O=352 | T=880.10 | O_SA=557.0 | O_RA=564.0 | total_time=58802|
+|s2v140c2400-1.cnf|S=N/A | O=N/A | T=TO | O_SA=586.0 | O_RA=617.0 | total_time=58358|
+|s2v140c2400-2.cnf|S=N/A | O=N/A | T=TO | O_SA=596.0 | O_RA=601.0 | total_time=63436|
+|s2v140c2400-3.cnf|S=N/A | O=N/A | T=TO | O_SA=599.0 | O_RA=592.0 | total_time=59371|
+|s2v140c2500-1.cnf|S=OPT | O=393 | T=837.06 | O_SA=588.0 | O_RA=586.0 | total_time=57484|
+|s2v140c2500-2.cnf|S=N/A | O=N/A | T=TO | O_SA=638.0 | O_RA=616.0 | total_time=59229|
+|s2v140c2500-3.cnf|S=N/A | O=N/A | T=TO | O_SA=590.0 | O_RA=625.0 | total_time=56839|
+|s2v140c2600-1.cnf|S=N/A | O=N/A | T=TO | O_SA=688.0 | O_RA=644.0 | total_time=63485|
+|s2v140c2600-2.cnf|S=N/A | O=N/A | T=TO | O_SA=652.0 | O_RA=630.0 | total_time=54280|
+|s2v140c2600-3.cnf|S=OPT | O=406 | T=961.82 | O_SA=644.0 | O_RA=661.0 | total_time=59887|
+|s2v160c1200-1.cnf|S=OPT | O=142 | T=43.42 | O_SA=294.0 | O_RA=309.0 | total_time=53882|
+|s2v160c1200-2.cnf|S=OPT | O=133 | T=8.96 | O_SA=322.0 | O_RA=309.0 | total_time=57429|
+|s2v160c1200-3.cnf|S=OPT | O=143 | T=86.49 | O_SA=296.0 | O_RA=307.0 | total_time=52322|
+|s2v160c1300-1.cnf|S=OPT | O=167 | T=337.15 | O_SA=317.0 | O_RA=328.0 | total_time=50758|
+|s2v160c1300-2.cnf|S=OPT | O=139 | T=2.90 | O_SA=319.0 | O_RA=338.0 | total_time=59119|
+|s2v160c1300-3.cnf|S=OPT | O=157 | T=86.01 | O_SA=303.0 | O_RA=329.0 | total_time=58763|
+|s2v160c1400-1.cnf|S=OPT | O=166 | T=36.36 | O_SA=358.0 | O_RA=382.0 | total_time=51494|
+|s2v160c1400-2.cnf|S=OPT | O=164 | T=38.99 | O_SA=333.0 | O_RA=365.0 | total_time=59191|
+|s2v160c1400-3.cnf|S=OPT | O=167 | T=21.86 | O_SA=350.0 | O_RA=379.0 | total_time=51919|
+|s2v160c1500-1.cnf|S=OPT | O=183 | T=14.22 | O_SA=396.0 | O_RA=383.0 | total_time=58407|
+|s2v160c1500-2.cnf|S=OPT | O=200 | T=905.90 | O_SA=369.0 | O_RA=365.0 | total_time=51360|
+|s2v160c1500-3.cnf|S=OPT | O=184 | T=62.16 | O_SA=389.0 | O_RA=373.0 | total_time=56736|
+|s2v160c1600-1.cnf|S=N/A | O=N/A | T=TO | O_SA=405.0 | O_RA=419.0 | total_time=53231|
+|s2v160c1600-2.cnf|S=N/A | O=N/A | T=TO | O_SA=386.0 | O_RA=409.0 | total_time=58300|
+|s2v160c1600-3.cnf|S=OPT | O=213 | T=743.89 | O_SA=399.0 | O_RA=412.0 | total_time=60929|
+|s2v160c1700-1.cnf|S=OPT | O=226 | T=659.70 | O_SA=425.0 | O_RA=428.0 | total_time=61813|
+|s2v160c1700-2.cnf|S=OPT | O=230 | T=572.97 | O_SA=412.0 | O_RA=450.0 | total_time=57488|
+|s2v160c1700-3.cnf|S=N/A | O=N/A | T=TO | O_SA=435.0 | O_RA=456.0 | total_time=58512|
+|s2v160c1800-1.cnf|S=N/A | O=N/A | T=TO | O_SA=426.0 | O_RA=452.0 | total_time=55364|
+|s2v160c1800-2.cnf|S=N/A | O=N/A | T=TO | O_SA=440.0 | O_RA=430.0 | total_time=52207|
+|s2v160c1800-3.cnf|S=N/A | O=N/A | T=TO | O_SA=465.0 | O_RA=471.0 | total_time=58961|
+|s2v160c1900-1.cnf|S=OPT | O=261 | T=1241.31 | O_SA=459.0 | O_RA=465.0 | total_time=85108|
+|s2v160c1900-2.cnf|S=OPT | O=262 | T=1480.92 | O_SA=490.0 | O_RA=473.0 | total_time=53119|
+|s2v160c1900-3.cnf|S=OPT | O=264 | T=995.23 | O_SA=460.0 | O_RA=483.0 | total_time=53532|
+|s2v160c2000-1.cnf|S=N/A | O=N/A | T=TO | O_SA=510.0 | O_RA=491.0 | total_time=58984|
+|s2v160c2000-2.cnf|S=OPT | O=272 | T=92.52 | O_SA=526.0 | O_RA=520.0 | total_time=61771|
+|s2v160c2000-3.cnf|S=OPT | O=282 | T=790.73 | O_SA=561.0 | O_RA=540.0 | total_time=62642|
+|s2v160c2100-1.cnf|S=N/A | O=N/A | T=TO | O_SA=535.0 | O_RA=534.0 | total_time=57482|
+|s2v160c2100-2.cnf|S=N/A | O=N/A | T=TO | O_SA=531.0 | O_RA=546.0 | total_time=51142|
+|s2v160c2100-3.cnf|S=N/A | O=N/A | T=TO | O_SA=511.0 | O_RA=522.0 | total_time=59420|
+|s2v160c2200-1.cnf|S=OPT | O=310 | T=642.57 | O_SA=552.0 | O_RA=506.0 | total_time=59417|
+|s2v160c2200-2.cnf|S=N/A | O=N/A | T=TO | O_SA=550.0 | O_RA=529.0 | total_time=60796|
+|s2v160c2200-3.cnf|S=N/A | O=N/A | T=TO | O_SA=532.0 | O_RA=530.0 | total_time=52151|
+|s2v160c2300-1.cnf|S=N/A | O=N/A | T=TO | O_SA=572.0 | O_RA=569.0 | total_time=58535|
+|s2v160c2300-2.cnf|S=N/A | O=N/A | T=TO | O_SA=617.0 | O_RA=591.0 | total_time=58655|
+|s2v160c2300-3.cnf|S=N/A | O=N/A | T=TO | O_SA=576.0 | O_RA=561.0 | total_time=57925|
+|s2v160c2400-1.cnf|S=N/A | O=N/A | T=TO | O_SA=594.0 | O_RA=618.0 | total_time=58369|
+|s2v160c2400-2.cnf|S=N/A | O=N/A | T=TO | O_SA=596.0 | O_RA=568.0 | total_time=57284|
+|s2v160c2400-3.cnf|S=N/A | O=N/A | T=TO | O_SA=603.0 | O_RA=574.0 | total_time=64362|
+|s2v160c2500-1.cnf|S=N/A | O=N/A | T=TO | O_SA=624.0 | O_RA=626.0 | total_time=57626|
+|s2v160c2500-2.cnf|S=N/A | O=N/A | T=TO | O_SA=630.0 | O_RA=650.0 | total_time=53401|
+|s2v160c2500-3.cnf|S=N/A | O=N/A | T=TO | O_SA=621.0 | O_RA=631.0 | total_time=53390|
+|s2v160c2600-1.cnf|S=OPT | O=392 | T=1596.27 | O_SA=655.0 | O_RA=642.0 | total_time=51931|
+|s2v160c2600-2.cnf|S=N/A | O=N/A | T=TO | O_SA=627.0 | O_RA=679.0 | total_time=58036|
+|s2v160c2600-3.cnf|S=N/A | O=N/A | T=TO | O_SA=615.0 | O_RA=653.0 | total_time=58480|
+|s2v180c1200-1.cnf|S=OPT | O=134 | T=147.86 | O_SA=301.0 | O_RA=293.0 | total_time=52172|
+|s2v180c1200-2.cnf|S=OPT | O=130 | T=79.94 | O_SA=275.0 | O_RA=281.0 | total_time=53316|
+|s2v180c1200-3.cnf|S=OPT | O=131 | T=156.38 | O_SA=313.0 | O_RA=318.0 | total_time=58793|
+|s2v180c1200-4.cnf|S=OPT | O=128 | T=135.96 | O_SA=293.0 | O_RA=301.0 | total_time=60521|
+|s2v180c1300-1.cnf|S=OPT | O=153 | T=646.96 | O_SA=321.0 | O_RA=319.0 | total_time=51691|
+|s2v180c1300-2.cnf|S=OPT | O=138 | T=43.39 | O_SA=356.0 | O_RA=341.0 | total_time=53169|
+|s2v180c1300-3.cnf|S=OPT | O=150 | T=165.80 | O_SA=319.0 | O_RA=314.0 | total_time=58187|
+|s2v180c1300-4.cnf|S=OPT | O=149 | T=288.42 | O_SA=309.0 | O_RA=323.0 | total_time=60748|
+|s2v180c1400-1.cnf|S=OPT | O=165 | T=433.80 | O_SA=326.0 | O_RA=356.0 | total_time=61292|
+|s2v180c1400-2.cnf|S=OPT | O=165 | T=514.80 | O_SA=348.0 | O_RA=333.0 | total_time=55759|
+|s2v180c1400-3.cnf|S=OPT | O=156 | T=133.24 | O_SA=343.0 | O_RA=339.0 | total_time=51538|
+|s2v180c1400-4.cnf|S=OPT | O=160 | T=245.56 | O_SA=327.0 | O_RA=351.0 | total_time=57101|
+|s2v180c1500-1.cnf|S=OPT | O=184 | T=1633.85 | O_SA=379.0 | O_RA=389.0 | total_time=58182|
+|s2v180c1500-2.cnf|S=OPT | O=180 | T=1434.90 | O_SA=381.0 | O_RA=357.0 | total_time=52729|
+|s2v180c1500-3.cnf|S=OPT | O=179 | T=291.29 | O_SA=374.0 | O_RA=353.0 | total_time=60770|
+|s2v180c1500-4.cnf|S=OPT | O=181 | T=406.46 | O_SA=357.0 | O_RA=378.0 | total_time=52997|
+|s2v180c1600-1.cnf|S=N/A | O=N/A | T=TO | O_SA=401.0 | O_RA=382.0 | total_time=52290|
+|s2v180c1600-2.cnf|S=N/A | O=N/A | T=TO | O_SA=374.0 | O_RA=365.0 | total_time=62215|
+|s2v180c1600-3.cnf|S=N/A | O=N/A | T=TO | O_SA=406.0 | O_RA=413.0 | total_time=58128|
+|s2v180c1600-4.cnf|S=N/A | O=N/A | T=TO | O_SA=402.0 | O_RA=384.0 | total_time=52197|
+|s2v180c1700-1.cnf|S=N/A | O=N/A | T=TO | O_SA=410.0 | O_RA=392.0 | total_time=57428|
+|s2v180c1700-2.cnf|S=N/A | O=N/A | T=TO | O_SA=406.0 | O_RA=397.0 | total_time=61157|
+|s2v180c1700-3.cnf|S=OPT | O=209 | T=1066.08 | O_SA=435.0 | O_RA=460.0 | total_time=51242|
+|s2v180c1700-4.cnf|S=OPT | O=206 | T=266.32 | O_SA=421.0 | O_RA=409.0 | total_time=60802|
+|s2v180c1800-1.cnf|S=N/A | O=N/A | T=TO | O_SA=424.0 | O_RA=442.0 | total_time=51158|
+|s2v180c1800-2.cnf|S=N/A | O=N/A | T=TO | O_SA=454.0 | O_RA=423.0 | total_time=52048|
+|s2v180c1800-3.cnf|S=OPT | O=232 | T=1359.50 | O_SA=429.0 | O_RA=421.0 | total_time=59377|
+|s2v180c1800-4.cnf|S=N/A | O=N/A | T=TO | O_SA=444.0 | O_RA=422.0 | total_time=58286|
+|s2v180c1900-1.cnf|S=OPT | O=245 | T=657.85 | O_SA=439.0 | O_RA=465.0 | total_time=62563|
+|s2v180c1900-2.cnf|S=N/A | O=N/A | T=TO | O_SA=482.0 | O_RA=479.0 | total_time=52671|
+|s2v180c1900-3.cnf|S=N/A | O=N/A | T=TO | O_SA=494.0 | O_RA=442.0 | total_time=58381|
+|s2v180c1900-4.cnf|S=N/A | O=N/A | T=TO | O_SA=498.0 | O_RA=465.0 | total_time=58515|
+|s2v180c2000-1.cnf|S=N/A | O=N/A | T=TO | O_SA=455.0 | O_RA=466.0 | total_time=51885|
+|s2v180c2000-2.cnf|S=N/A | O=N/A | T=TO | O_SA=485.0 | O_RA=506.0 | total_time=52191|
+|s2v180c2000-3.cnf|S=N/A | O=N/A | T=TO | O_SA=488.0 | O_RA=462.0 | total_time=58788|
+|s2v180c2000-4.cnf|S=N/A | O=N/A | T=TO | O_SA=538.0 | O_RA=481.0 | total_time=51931|
+|s2v180c2100-1.cnf|S=N/A | O=N/A | T=TO | O_SA=506.0 | O_RA=521.0 | total_time=59305|
+|s2v180c2100-2.cnf|S=N/A | O=N/A | T=TO | O_SA=548.0 | O_RA=535.0 | total_time=57927|
+|s2v180c2100-3.cnf|S=N/A | O=N/A | T=TO | O_SA=549.0 | O_RA=540.0 | total_time=52196|
+|s2v180c2100-4.cnf|S=N/A | O=N/A | T=TO | O_SA=527.0 | O_RA=554.0 | total_time=59932|
+|s2v180c2200-1.cnf|S=N/A | O=N/A | T=TO | O_SA=552.0 | O_RA=552.0 | total_time=52505|
+|s2v180c2200-2.cnf|S=N/A | O=N/A | T=TO | O_SA=542.0 | O_RA=576.0 | total_time=53788|
+|s2v180c2200-3.cnf|S=N/A | O=N/A | T=TO | O_SA=570.0 | O_RA=562.0 | total_time=65356|
+|s2v180c2200-4.cnf|S=N/A | O=N/A | T=TO | O_SA=537.0 | O_RA=508.0 | total_time=56004|
+|s2v200c1200-1.cnf|S=OPT | O=118 | T=133.09 | O_SA=296.0 | O_RA=310.0 | total_time=56979|
+|s2v200c1200-2.cnf|S=OPT | O=127 | T=332.19 | O_SA=286.0 | O_RA=314.0 | total_time=57383|
+|s2v200c1200-3.cnf|S=OPT | O=125 | T=475.72 | O_SA=275.0 | O_RA=294.0 | total_time=57206|
+|s2v200c1200-4.cnf|S=OPT | O=115 | T=29.65 | O_SA=286.0 | O_RA=298.0 | total_time=52500|
+|s2v200c1200-5.cnf|S=OPT | O=117 | T=148.82 | O_SA=318.0 | O_RA=296.0 | total_time=53018|
+|s2v200c1200-6.cnf|S=OPT | O=127 | T=275.54 | O_SA=320.0 | O_RA=314.0 | total_time=58733|
+|s2v200c1200-7.cnf|S=OPT | O=112 | T=17.12 | O_SA=327.0 | O_RA=306.0 | total_time=59790|
+|s2v200c1300-1.cnf|S=OPT | O=144 | T=655.54 | O_SA=337.0 | O_RA=283.0 | total_time=57853|
+|s2v200c1300-2.cnf|S=OPT | O=143 | T=874.62 | O_SA=335.0 | O_RA=337.0 | total_time=62245|
+|s2v200c1300-3.cnf|S=OPT | O=121 | T=62.43 | O_SA=317.0 | O_RA=310.0 | total_time=66989|
+|s2v200c1300-4.cnf|S=OPT | O=139 | T=306.59 | O_SA=334.0 | O_RA=325.0 | total_time=57389|
+|s2v200c1300-5.cnf|S=OPT | O=142 | T=572.57 | O_SA=337.0 | O_RA=340.0 | total_time=58488|
+|s2v200c1300-6.cnf|S=OPT | O=134 | T=517.50 | O_SA=305.0 | O_RA=302.0 | total_time=52041|
+|s2v200c1300-7.cnf|S=OPT | O=128 | T=32.98 | O_SA=307.0 | O_RA=312.0 | total_time=57212|
+|s2v200c1400-1.cnf|S=OPT | O=156 | T=756.32 | O_SA=354.0 | O_RA=334.0 | total_time=57810|
+|s2v200c1400-2.cnf|S=OPT | O=147 | T=156.52 | O_SA=347.0 | O_RA=325.0 | total_time=57402|
+|s2v200c1400-3.cnf|S=OPT | O=150 | T=182.12 | O_SA=344.0 | O_RA=380.0 | total_time=61884|
+|s2v200c1400-4.cnf|S=N/A | O=N/A | T=TO | O_SA=341.0 | O_RA=357.0 | total_time=52111|
+|s2v200c1400-5.cnf|S=OPT | O=153 | T=342.49 | O_SA=376.0 | O_RA=364.0 | total_time=51171|
+|s2v200c1400-6.cnf|S=OPT | O=145 | T=115.08 | O_SA=344.0 | O_RA=335.0 | total_time=54082|
+|s2v200c1400-7.cnf|S=OPT | O=142 | T=135.26 | O_SA=340.0 | O_RA=352.0 | total_time=59291|
+|s2v200c1500-1.cnf|S=OPT | O=165 | T=177.97 | O_SA=370.0 | O_RA=363.0 | total_time=58751|
+|s2v200c1500-2.cnf|S=OPT | O=165 | T=388.23 | O_SA=378.0 | O_RA=373.0 | total_time=62106|
+|s2v200c1500-3.cnf|S=OPT | O=165 | T=759.47 | O_SA=344.0 | O_RA=358.0 | total_time=54177|
+|s2v200c1500-4.cnf|S=N/A | O=N/A | T=TO | O_SA=397.0 | O_RA=357.0 | total_time=60687|
+|s2v200c1500-5.cnf|S=N/A | O=N/A | T=TO | O_SA=362.0 | O_RA=345.0 | total_time=51994|
+|s2v200c1500-6.cnf|S=N/A | O=N/A | T=TO | O_SA=378.0 | O_RA=389.0 | total_time=53169|
+|s2v200c1500-7.cnf|S=N/A | O=N/A | T=TO | O_SA=393.0 | O_RA=386.0 | total_time=59076|
+|s2v200c1600-1.cnf|S=N/A | O=N/A | T=TO | O_SA=422.0 | O_RA=421.0 | total_time=58663|
+|s2v200c1600-2.cnf|S=OPT | O=178 | T=307.70 | O_SA=407.0 | O_RA=370.0 | total_time=52628|
+|s2v200c1600-3.cnf|S=N/A | O=N/A | T=TO | O_SA=381.0 | O_RA=378.0 | total_time=52118|
+|s2v200c1600-4.cnf|S=N/A | O=N/A | T=TO | O_SA=410.0 | O_RA=391.0 | total_time=53513|
+|s2v200c1600-5.cnf|S=N/A | O=N/A | T=TO | O_SA=387.0 | O_RA=407.0 | total_time=54069|
+|s2v200c1600-6.cnf|S=N/A | O=N/A | T=TO | O_SA=397.0 | O_RA=406.0 | total_time=54074|
+|s2v200c1600-7.cnf|S=N/A | O=N/A | T=TO | O_SA=397.0 | O_RA=386.0 | total_time=58607|
+|s2v200c1700-1.cnf|S=OPT | O=193 | T=146.26 | O_SA=427.0 | O_RA=395.0 | total_time=58862|
+|s2v200c1700-2.cnf|S=N/A | O=N/A | T=TO | O_SA=407.0 | O_RA=409.0 | total_time=52236|
+|s2v200c1700-3.cnf|S=N/A | O=N/A | T=TO | O_SA=424.0 | O_RA=435.0 | total_time=53534|
+|s2v200c1700-4.cnf|S=N/A | O=N/A | T=TO | O_SA=438.0 | O_RA=422.0 | total_time=58846|
+|s2v200c1700-5.cnf|S=N/A | O=N/A | T=TO | O_SA=407.0 | O_RA=427.0 | total_time=58521|
+|s2v200c1700-6.cnf|S=N/A | O=N/A | T=TO | O_SA=402.0 | O_RA=415.0 | total_time=51931|
+|s2v200c1700-7.cnf|S=N/A | O=N/A | T=TO | O_SA=432.0 | O_RA=439.0 | total_time=66487|
+|s2v200c1800-1.cnf|S=OPT | O=206 | T=383.34 | O_SA=481.0 | O_RA=463.0 | total_time=58794|
+|s2v200c1800-2.cnf|S=N/A | O=N/A | T=TO | O_SA=486.0 | O_RA=471.0 | total_time=59122|
+|s2v200c1800-3.cnf|S=N/A | O=N/A | T=TO | O_SA=478.0 | O_RA=479.0 | total_time=58646|
+|s2v200c1800-4.cnf|S=N/A | O=N/A | T=TO | O_SA=450.0 | O_RA=457.0 | total_time=62121|
+|s2v200c1800-5.cnf|S=N/A | O=N/A | T=TO | O_SA=469.0 | O_RA=488.0 | total_time=161976|
+|s2v200c1800-6.cnf|S=N/A | O=N/A | T=TO | O_SA=433.0 | O_RA=479.0 | total_time=52555|
+|s2v200c1800-7.cnf|S=N/A | O=N/A | T=TO | O_SA=424.0 | O_RA=449.0 | total_time=62791|

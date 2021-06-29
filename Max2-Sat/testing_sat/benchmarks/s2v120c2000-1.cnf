@@ -1,3 +1,5 @@
+c CNF
+c from Selman's wff generator
 p cnf 120  2000
 -18 92 0
 103 -52 0
