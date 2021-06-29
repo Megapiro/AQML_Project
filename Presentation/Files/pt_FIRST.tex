@@ -22,14 +22,14 @@
 			\includegraphics[scale=0.3]{Iris.png}
 		\end{minipage}
 	\end{frame}
-	% NOTES: We want to cluster data in balanced similar sets, similarity is 
-	% measured by statistical variance within each cluster
+	% NOTES2: The paper we are going to talk about proposes a quantum implementation of Balanced k-Means, which is a clustering algorithm that aims at clustering data in similar sets which have the same number of samples inside them. 
+	% The similarity is measured by statistical variance within each cluster
+
+	% You can see here the outline of our presentation...
 	
 	% why should we look for a Q-algorithm for this problem?
 
 	% The advantages over classical approaches are…
-
-	% This is the outline of our presentation that resembles the one of the paper
 
 
 \subsection{Unconstrained \textit{k}-Mean Clustering}
@@ -60,12 +60,15 @@
 		}
 	\end{frame}
 
+	% Throughout the presentation we will compare the quantum representation
+	% to other implementation of the same problem or its "unconstrained" (not
+	% balanced) counterpart. 
+	
 	% Lloyd’s algorithm is an iterative approach for solving unconstrained 
 	% k-means clustering (meaning that the result is not necessarily balanced). 
 	% The complexity is….
 
 	% The authors use the Scikit-learn implementation (which bounds the number of iterations) as a point of comparison.
-	% this approach does not guarantee a locally optimal solution but it achieves high quality clustering performance in practice.
 
 \subsection{Balanced \textit{k}-means clustering}
 	\begin{frame}{Balanced \textit{k}-means clustering}
@@ -82,9 +85,8 @@
 		}
 	\end{frame}
 
-	% this is the other algorithm is used for camperison w.r.t. the 
-	% quantum one proposed, this one takes into consideration the
-	% balanced constrained, it has complexity O(N^3)
+	% this is the other algorithm is used for comparison. It is a balanced,
+	% k-means algorithm and it has complexity O(N^3)
 
 \subsection{QUBO formulation}
 	\begin{frame}{QUBO formulation}
@@ -94,7 +96,7 @@
 				$$\min _{z \in \mathbb{B}^{M}} z^{T} A z$$
 				\pause
 				% 2
-				$$X=\left\{x_{1}, x_{2}, \ldots, x_{N}\right\}$$\\$$\Phi=\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{k}\right\} .$$
+				$$X=\left\{x_{1}, x_{2}, \ldots, x_{N}\right\}$$\\$$\Phi=\left\{\phi_{1}, \phi_{2}, \ldots, \phi_{k}\right\}$$
 				\pause
 				% 3 
 				$$\min _{\Phi} \sum_{j=1}^{k} \sum_{x \in \phi_{j}}\left\|x-\mu_{j}\right\|^{2}$$
@@ -119,15 +121,16 @@
 			\end{column}
 		\end{columns}
 	\end{frame}
-	% 	Quantum clustering algorithms have been proposed but the author proposes a QUBO formulation that is identical to the balanced k-means training problem.
+	% Quantum clustering algorithms have been proposed but the author proposes a QUBO formulation that is identical to the balanced k-means training problem.
 	% Our goal is to convert the balanced k-means training problem into a QUBO formulation. 
 	% 1-> A is the real valued MxM QUBO matrix while z is the binary decision vector
 	% 2-> we want to partition a dataset of N samples into k clusters
-	% 3-> mu is the centroid of a cluster
+	% 3-> This is the original problem, mu is the centroid of a cluster
 	% 4-> utilizing the law of total variance
 	% 5-> in case we assume the clusters to be balanced we can drop the constant 1/2|\phi|
-	% 6-> NxN matrix with distances, Nxk matrix with binary values with ones if a sample is assigned to that column's cluster
-	% 7-> w_j is the j-th column of W the first multiplication makes us obtain a n-row vector in which each value is the sum of the distances of 1 of n samples from the samples in the cluster, the second one only select the sum of distances of samples in the same cluster.
+	% 6-> D: NxN matrix with distances, 
+	% 	  W: Nxk matrix with binary values with ones if a sample is assigned to that column's cluster
+	% 7-> w_j is the j-th column of W. The first multiplication makes us obtain a n-row vector in which each value is the sum of the distances of 1 of n samples from the samples in the cluster, the second one only select the sum of distances of samples in the same cluster.
 	% 8-> \hat w is the vertical stack of column of W, now we need to add the constraint over \hat W through penalties 
 
 	\begin{frame}{Penalties}
@@ -138,7 +141,6 @@
 				\pause
 				% 2
 				$$\hat{w}_{j}^{\prime T} \alpha F \hat{w}_{j}^{\prime}$$
-				\pause
 				% 3
 				$$F=1_{N}-\frac{2 N}{k} I_{N}$$
 				\pause
@@ -152,17 +154,16 @@
 				\pause
 				% 6
 				$$\hat{w}_{i}^{T} \beta G \hat{w}_{i}$$
-				\pause
 				% 7
 				$$G=1_{k}-2 I_{k}$$
 				\pause
 				% 8
-				$$\hat{w}^{T} Q^{T}\left(I_{N} \otimes \beta G\right) Q \hat{w}$$
+				$$\min_{\hat{w}}\hat{w}^{T} Q^{T}\left(I_{N} \otimes \beta G\right) Q \hat{w}$$
 				\pause
 			\end{column}
 		\end{columns}
 		\bigbreak
-		$$\min _{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes(D+\alpha F)+Q^{T}\left(I_{N} \otimes \beta G\right) Q\right) \hat{w}$$
+		$$\min_{\hat{w}} \hat{w}^{T}\left(I_{k} \otimes(D+\alpha F)+Q^{T}\left(I_{N} \otimes \beta G\right) Q\right) \hat{w}$$
 	\end{frame}
 
 
@@ -202,11 +203,11 @@
 
 	% Max D is the maximum distance found in D
 
-	% the idea is that if the clusters are reasonably defined, the maximum element of D is much larger than the average squared distance between two points in a given cluster.
+	% The idea is that if the clusters are reasonably defined, the maximum element of D is much larger than the average squared distance between two points in a given cluster.
 	% This way violating a constraint almost always penalizes the final value more than a poor assignment
 	% By dividing α we make the constraint for a balanced solution less important that the one for ensuring a single assignment for each datum.
 
-	% However there are instance in which the constraints are not satisfied and in this cases simple adjustments are made.
+	% However there are instances in which the constraints are not satisfied and in this cases simple adjustments are made.
 	% • A sample assigned to more clusters only retains the assignment to the cluster with the smallest index
 	% • A sample assigned to no cluster gets assigned to the first one
 
@@ -241,7 +242,7 @@
 		\bigbreak		
 	\end{frame}
 
-	% by rewriting the equation we can see that the worst case complexity for converting the eq. into a QUBO problem is 
+	% By rewriting the equation we can see that the worst case complexity for converting the eq. into a QUBO problem is...
 	% as a reminder these are the complexity of the algorithms use for comparison
 
 	%% Francesco Actually says this conclusion...
