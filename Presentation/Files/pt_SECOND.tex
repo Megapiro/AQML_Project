@@ -5,28 +5,33 @@
 
 		\begin{frame}{Baselines}
 		\textbf{Algorithms used for comparisons}
+
+		% we report here the baselines used to compare the case study algorithm, for clarity
 		\begin{itemize}
-			\item[$\bullet$] \textbf{balanced quantum k-means} (case study)
-			\item[$\bullet$] \textbf{balanced classical k-means} (authors implementation of Malinen et al.)
-			\item[$\bullet$] \textbf{classical k-means} (scikit-learn implementation)
+			\item[$\bullet$] \textbf{balanced quantum k-means} $O(N^2kd)$ (case study) 
+			\item[$\bullet$] \textbf{balanced classical k-means} $O(N^3)$ (authors implementation of Malinen et al.)
+			\item[$\bullet$] \textbf{classical k-means} $O(Nkd)$ (scikit-learn implementation Lloyd's algorithm)
 		\end{itemize}
 
-		classical k-means is a \textbf{valid comparison}
+		classical k-means \textbf{valid comparison} (thanks to dataset structure)
 
-		% the above algorithms are the three baselines used
-		% classical version of the k-means (non balanced) is used since, due to the structure 
-		% of the dataset, constitute a valid comparison.
+		% altough not balanced, the classical version of the k-means (non balanced) 
+		% is still a valid comparison, as we will see in the next slides, 
+		% since, due to the balanced structure of the dataset should produce a similar
+		% result w.r.t. the balanced algorithms
 		
 		\end{frame}
 
 		\begin{frame}{Performance Metrics}
-						
+
+			% the performance metrics used for comparison are the ARI and the total computing time
+									
 			\textbf{Adjusted Rand Index (ARI)}
 			\begin{itemize}
 				\item[$\bullet$] compare the similarity of two partitions of a dataset 
+				\item[$\bullet$] used to compare \textbf{ground truth labels} vs \textbf{clustering algorithm partition} 
 				\item[$\bullet$] range from $-1$ to $1$ 
-				\item[$\bullet$] ARI = 0 represent expected value random assignment
-				\item[$\bullet$] used to compare \textbf{target partitions} vs \textbf{clustering partitions} 
+				\item[$\bullet$] ARI = 0 represent a random assignment
 			\end{itemize}
 			
 			\textbf{Total Computing time in quantum approach}
@@ -49,15 +54,15 @@
 		\end{frame}
 
 		\begin{frame}{Data Generation}
-			Synthetic classification datasets created with \textit{make\_classification} (Scikit-learn)	\\
+			Synthetic datasets created with \textit{make\_classification} (Scikit-learn)	\\
 			\textbf{Datasets structure}
 			\begin{itemize}
 				\item[$\bullet$] \textbf{N} points	
 				\item[$\bullet$] \textbf{k} classes	
 				\item[$\bullet$] \textbf{d} features 
-				\item[$\bullet$] clusters \textbf{centered} on a \textit{d}-dimensional hypercube (with side length $2.0$)  
-				\item[$\bullet$] points generated from a \textbf{normal dist.} about their cluster center (std $1.0$)   
-				\item[$\bullet$] each class made of $\frac{N}{k}$ \textbf{points}   
+				\item[$\bullet$] each clusters \textbf{centered} on one of the \textbf{vertices} of a \textit{d}-dimensional hypercube  
+				\item[$\bullet$] points generated from a \textbf{normal dist.} about their cluster center 
+				\item[$\bullet$] $\frac{N}{k}$ \textbf{exactly points} per \textbf{class}   
 			\end{itemize}
 
 			% data for experiments is generated from a scikit learn function called make_classification
@@ -81,51 +86,55 @@
 
 			\textbf{Technical Aspects}
 			\begin{itemize}
-				\item[$\bullet$] \textbf{quantum pre/post-processing} done via the above \textbf{classical} machine
+				\item[$\bullet$] \textbf{quantum pre/post-processing} done via \textbf{classical} machine
 				\item[$\bullet$] quantum \textbf{anealing} operation \textbf{perfomed 100 times} for each experiment   
 			\end{itemize}			
 
 			% the Hardware used for the experiments is reported in this slide
 			% * description of the list *
-			% what it means with only ground state is used???
 
 		\end{frame}
 
 		\begin{frame}{Experiments}
 			\textbf{Quality of Clustering Experiment (ARI)}
+			% this experiment aims to compare the clustering quality of each algorithms
+
 			\begin{itemize}
-				\item[$\bullet$] clustering quality of the 3 algorithms is compared
+				\item[$\bullet$] \textbf{clustering quality} of the 3 algorithms is compared
 				\item[$\bullet$] each algorithm evaluated on different \textbf{problem types}
+				% a problem type is defined by a points and clusters, we have a total of 9 problem types
 				\begin{itemize}
 					\item[$\circ$] total of 9 problem types 
 					\item[$\circ$] defined by \textit{(num. of points, num. of clusters)}
+					\item[$\circ$] e.g. \textit{(16 points, 2 clusters)}
 				\end{itemize}
+
 				\item[$\bullet$] for each problem type:
 				\begin{itemize}
-					\item[$\circ$]  all the 3 algorithm evaluated on 50 \textbf{synthetic datasets}
+					\item[$\circ$] all the 3 algorithm evaluated on 50 \textbf{synthetic datasets}
+					\item[$\circ$] \textbf{Averaged ARI} is reported  
 				\end{itemize}
 			\end{itemize}
 
 			% the experiments are carried for different problem types, problem type are
 			% defined by the number of points and number of clusters for instance (12, 3)
-			% the main experiment is done with 9 problem types, for each of them 
-			% the algorithms are evaluated on the 50 generated datasets
 			
 		\end{frame}
 
 		\begin{frame}{Experiments}
 			\textbf{Commenting Results for Quantum Approach}
-			\begin{itemize}
-				\item[$\bullet$] performances drop for $k=2$
-				\begin{itemize}
-					\item[$\circ$] less way to cluster $\Longrightarrow$ local solution is more likely to be the correct one 
-				\end{itemize}
-				\item[$\bullet$] performances drop as the problem size increase 
-				\begin{itemize}
-					\item[$\circ$] reflection of the quantum hardware
-				\end{itemize}
-				%\item[$\bullet$] best performances obtained for problem types (8,4) (12, 3) (12, 4)  
-			\end{itemize}
+
+			\begin{table}[]
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{@{}|c|c|@{}}
+			\toprule
+			\textbf{observation}                                                                                                  & \textbf{possible cause/motivation}                                                                                           \\ \midrule
+			\begin{tabular}[c]{@{}c@{}}drop in performance for \\ $k=2$ classical vs quantum\end{tabular}                         & \begin{tabular}[c]{@{}c@{}}less way to cluster, local solution is \\ more likely to be the correct one\end{tabular} \\ \midrule
+			quantum performances drop as the problem size increase                                                                & reflection of the quantum hardware                                                                                  \\ \midrule
+			\begin{tabular}[c]{@{}c@{}}best quantum performances obtained \\ for problem types (8,4) (12, 3) (12, 4)\end{tabular} & \begin{tabular}[c]{@{}c@{}}as quantum computer improves author's \\ approach may outperform classical\end{tabular}  \\ \bottomrule
+			\end{tabular}%
+			}
+			\end{table}
 
 			\begin{center}
 				\includegraphics[scale=0.65]{first_ARI_table.png}
@@ -145,13 +154,12 @@
 				\item[$\bullet$] Quantum run time for larger problems ($Nk > 64$)
 				\begin{itemize}
 					\item[$\circ$] used to evaluate scalability of the Quantum Approach
-					\item[$\circ$] measure $t_{QUBO_{convertion}}$ (measurable)
-					\item[$\circ$] estimate embedding time $t_{e}$ (from smaller problems)
-					\item[$\circ$] estimate annealing time $t_{a}$ (constant, averaging smaller problems) 
-					\item[$\circ$] measure $t_{postprocessing}$
+					\item[$\circ$] measure $t_{QUBO_{convertion}}$ and $t_{postprocessing}$ (measurable)
+					\item[$\circ$] estimate embedding time $t_{e}$ (\textbf{extrapolated} from smaller problems)
+					\item[$\circ$] estimate annealing time $t_{a}$ (constant, \textbf{averaging} smaller problems) 
 				\end{itemize} 
 			\end{itemize}
-			Embedding algorithms chosen \textbf{scale quadratically} in the number of \textbf{binary variables} of the QUBO
+			$t_e$ \textbf{scale quadratically} in the number of \textbf{binary variables} of the QUBO 
 			\begin{equation}
 				t_{e} = 1.887 \times 10^{-6}(Nk)^2 
 				+ 4.632 \times 10^{-6}(Nk)
@@ -173,75 +181,95 @@
 		\begin{frame}{Scalability}
 			\textbf{Experiments to assess scalability}
 			\begin{itemize}
-				\item[$\bullet$] baselines evaluated on the three variables:
+				\item[$\bullet$] evaluation metric used is \textbf{average total computing} time (\textbf{estimated} for quantum)
+				\item[$\bullet$] baselines evaluated on the \textbf{three variables}:
 				\begin{itemize}
 					\item[$\circ$] $N$ data points  					
 					\item[$\circ$] $k$ clusters
 					\item[$\circ$] $d$ features 
 				\end{itemize}
-				\item[$\bullet$] $\forall$ \textbf{problem type} baselines runned on 50 \textbf{synthetic datasets}
+				\item[$\bullet$] baselines runned on 50 \textbf{synthetic datasets}
 			\end{itemize}
 
 			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. points (N)}
-			\textbf{Setup and Considerations}
+			\textbf{Details}
 			\begin{itemize}
 				\item[$\bullet$] baselines evaluated on increasing \textbf{data points}
 				\item[$\bullet$] fixed cluster $k=4$ and features $d=2$
-				\item[$\bullet$] considerations:
-				\begin{itemize}
-					\item[$\circ$] quantum is outperformed (due to embedding time)
-					\item[$\circ$] future embedding time improvements may surpass classical balanced ($N \geq 1024$)
-					\item[$\circ$] classical k-means scales the best expected since its \textbf{time complexity} $O(Nkd)$ vs quantum balanced $O(N^2kd)$ 
-				\end{itemize} 
 			\end{itemize}
+
+			% embedding time difficult due to limited qubit connectivity	
+
+			\textbf{Considerations}
+			\begin{table}[]
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{@{}|c|c|@{}}
+			\toprule
+			\textbf{observation}                                 & \textbf{motivation/improvement} \\ \midrule
+			\textbf{quantum approach slower} than both classical & \begin{tabular}[c]{@{}c@{}}dominated by embedding time, \\ in future can improve for N\textgreater{}1024\end{tabular} \\ \midrule
+			classical k-means scale the best                     & $O(Nkd)$ vs $O(N^3)$ and $O(N^2kd)$                                                                                                                                     \\ \bottomrule
+			\end{tabular}%
+			}
+			\end{table}
+
 			\begin{center}
 				\includegraphics[scale=0.35]{scalability_points.png}
 			\end{center}	
 			
-			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. clusters (k)}
-			\textbf{Setup and Considerations}
+			\textbf{Details}
 			\begin{itemize}
 				\item[$\bullet$] baselines evaluated on increasing \textbf{cluster size}
 				\item[$\bullet$] fixed data points $N=256$ and features $d=8$
-				\item[$\bullet$] considerations:
-				\begin{itemize}
-					\item[$\circ$] quantum scales worse on cluster size w.r.t. to other approaches
-					\item[$\circ$] expected: third term on QUBO has $O(Nk^2)$ time complexity
-				\end{itemize} 
-			\end{itemize}
+			\end{itemize} 
+
+			\textbf{Considerations}
+			\begin{table}[]
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{@{}|c|c|@{}}
+			\toprule
+			\textbf{observation} & \textbf{motivation/improvement}\\ \midrule
+			\begin{tabular}[c]{@{}c@{}}quantum longer \textbf{time} on k\\ \textbf{scale worse} as k increase\end{tabular} & \begin{tabular}[c]{@{}c@{}}Third term in the QUBO formulation\\ time complexity $O(Nk^2)$\end{tabular} \\ \bottomrule
+			\end{tabular}%
+			}
+			\end{table}
+
 			\begin{center}
 				\includegraphics[scale=0.35]{scalability_clusters.png}
 			\end{center}
-			% * same things in the slides *
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]{Scalability w.r.t. features (d)}
 			\small
-			\textbf{Setup and Considerations}
+			\textbf{Details}
 			\begin{itemize}
 				\item[$\bullet$] baselines evaluated on increasing \textbf{features number}
 				\item[$\bullet$] fixed data points $N=1024$ and cluster $k=4$ 
-				\item[$\bullet$] considerations:
-				\begin{itemize}
-					\item[$\circ$] quantum is the worse on time 
-					\item[$\circ$] quantum is promising in a future perspective, depending on embedding process optimizations
-					\item[$\circ$] quantum approach scales better w.r.t. to classical \textit{k-means} on $d$  
-					%\item[$\circ$] QUBO formulation only requires one comput. related to the dimension of the dataset 
-
-					\item[$\circ$] QUBO formulation only requires one comput. of the distance matrix 
-					% this is because the quantum approach compute the variance though the total variance explained by matteo  
-					\item[$\circ$] classical k-means recomputes distances from centroids at each iteration 
-					% since recompute centroids at each iterations
-					\item[$\circ$] \textit{classical balanced k-means} scales better in $d$ w.r.t. to quantum approach 
-					\item[$\circ$] expected: \textit{quantum balanced} $O(N^2kd)$ vs \textit{classical balanced} $O(N^3)$  
-				\end{itemize} 
 			\end{itemize}
+			%\QUBO formulation only requires one comput. related to the dimension of the dataset 
+			% QUBO formulation only requires one comput. of the distance matrix 
+			% this is because the quantum approach compute the variance though the total variance explained by matteo  
+			%classical k-means recomputes distances from centroids at each iteration 
+			% since recompute centroids at each iterations
+
+			\textbf{Considerations}
+			\begin{table}[]
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{@{}|c|c|@{}}
+			\toprule
+			\textbf{observation}                                                                                                           & \textbf{motivations/improvements}                                                                                                                                          \\ \midrule
+			quantum had longest time                                                                                                       & \begin{tabular}[c]{@{}c@{}}\textbf{improvements} in hardware and embeddings could outperform\\ classical k-means $d>128$\\ classical balanced k-means $d<256$\end{tabular} \\ \midrule
+			\begin{tabular}[c]{@{}c@{}}quantum scales better w.r.t. classical k-means \\ as $d$ increases\end{tabular}                     & \begin{tabular}[c]{@{}c@{}}QUBO formulation only requires one comput. of the distance matrix\\ classical re-compute distance from centroids at each iteration\end{tabular} \\ \midrule
+			\begin{tabular}[c]{@{}c@{}}\textit{classical balanced k-means} scales \\ better in $d$ w.r.t. to quantum approach\end{tabular} & $O(N^2kd)$ vs $O(N^3)$                                                                                                                                                      \\ \bottomrule
+			\end{tabular}%
+			}
+			\end{table}
+
 			\begin{center}
 				\includegraphics[scale=0.35]{scalability_features.png}
 			\end{center}
