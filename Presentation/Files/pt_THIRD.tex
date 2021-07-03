@@ -73,7 +73,7 @@
 		% Tuning alpha modifies the curvature of the quadratic problem to optimize. Hence if the optimum of the balanced formulation is moved upwards thanks to a looser alpha, it means that we are allowing for the constraint to be violated more. In this way we will be able to find a solution for the case when more points belong to a class with respect to the others. Obviously this works in the case that we know that the dataset that we are going to consider has this characteristic. In the general case setting alpha smaller than beta is the best practice, always to allow the possibility to violate a few the constraint
 	
 		\framebreak
-		\textbf{Variables and Density of the QUBO}
+		\textbf{Variables and Embedding of the QUBO}
 		\begin{itemize}
 			\item[$\bullet$] In the QUBO formulation we introduce $k$ binary variables for each variable in the original problem \\ $$O(Nk) \:\: \textbf{variables}$$ % complexity of equation above [16]
 			\item[$\bullet$] Efficient embedding algorithms \textcolor{gray}{[30]} allow for a density of \\ $$O(N^2 k^2) \:\: \textbf{qubits}$$ 
